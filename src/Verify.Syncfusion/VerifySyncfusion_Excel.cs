@@ -28,7 +28,7 @@ public static partial class VerifySyncfusion
     {
         return new
         {
-            book.Author,
+            book.BuiltInDocumentProperties.Author,
             book.CodeName,
             book.Date1904,
             book.HasMacros,

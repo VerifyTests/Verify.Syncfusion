@@ -39,7 +39,7 @@ public static class ModuleInitializer
         {
             SyncfusionLicenseProvider.RegisterLicense(key);
         }
-
+        
         VerifySyncfusion.Initialize();
     }
 }
