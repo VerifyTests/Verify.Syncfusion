@@ -141,10 +141,19 @@ public Task VerifyExcelStream()
 <a id='snippet-Samples.VerifyExcel.00.verified.txt'></a>
 ```txt
 {
-  Author: ascropp
+  Author: ascropp,
+  CodeName: ThisWorkbook,
+  DetectDateTimeInValue: true,
+  ArgumentsSeparator: ,,
+  DisplayWorkbookTabs: true,
+  Version: Xlsx,
+  StandardFont: Arial,
+  StandardFontSize: 10.0,
+  MaxColumnCount: 16384,
+  MaxRowCount: 1048576
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyExcel.00.verified.txt#L1-L3' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyExcel.00.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [Samples.VerifyExcel.01.verified.png](/src/Tests/Samples.VerifyExcel.01.verified.png):

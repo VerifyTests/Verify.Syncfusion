@@ -28,7 +28,26 @@ public static partial class VerifySyncfusion
     {
         return new
         {
-            book.Author
+            book.Author,
+            book.CodeName,
+            book.Date1904,
+            book.HasMacros,
+            book.DisableMacrosStart,
+            book.DetectDateTimeInValue,
+            book.ArgumentsSeparator,
+            book.DisplayWorkbookTabs,
+            book.DisplayedTab,
+            book.ActiveSheetIndex,
+            book.IsRightToLeft,
+            book.IsWindowProtection,
+            book.Version,
+            book.IsCellProtection,
+            book.ReadOnly,
+            book.ReadOnlyRecommended,
+            book.StandardFont,
+            book.StandardFontSize,
+            book.MaxColumnCount,
+            book.MaxRowCount,
         };
     }
 
@@ -36,22 +55,11 @@ public static partial class VerifySyncfusion
     {
         foreach (var sheet in book.Worksheets)
         {
-            var setup = sheet.PageSetup;
-            setup.PrintGridlines = true;
-            setup.LeftMargin = 0;
-            setup.TopMargin = 0;
-            setup.RightMargin = 0;
-            setup.BottomMargin = 0;
-
-            var firstRow = sheet.UsedRange.Row;
-            var firstColumn = sheet.UsedRange.Column;
-            var lastRow = sheet.UsedRange.LastRow;
-            var lastColumn = sheet.UsedRange.LastColumn;
             var stream = new MemoryStream();
-            var stopwatch = Stopwatch.StartNew();
-            sheet.ConvertToImage(firstRow, firstColumn, lastRow, lastColumn, new() { ImageFormat = ExportImageFormat.Png }, stream);
-            stopwatch.Stop();
-            yield return new("png", stream);
+            sheet.SaveAs(stream, ",", Encoding.UTF8);
+            stream.Position = 0;
+            var reader = new StreamReader(stream);
+            yield return new("csv", reader.ReadToEnd());
         }
     }
 }
