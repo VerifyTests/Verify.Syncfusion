@@ -293,4 +293,4 @@ http://file-examples.com/
 
 ## Icon
 
-[Swirl](https://thenounproject.com/term/swirl/1568686/) designed by [creativepriyanka](https://thenounproject.com/creativepriyanka) from [The Noun Project](https://thenounproject.com/).
+[Boxes](https://thenounproject.com/term/boxes/1526666/) designed by [Amelia](https://thenounproject.com/langonsivani/) from [The Noun Project](https://thenounproject.com/).
