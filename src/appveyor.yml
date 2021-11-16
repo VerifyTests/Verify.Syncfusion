@@ -1,6 +1,7 @@
 image: Visual Studio 2022
-skip_commits:
-  message: /doco|Merge pull request.*/
+environment:
+  SyncfusionLicense:
+    secure: POvs0RsENyxFwe/Lt6vwOI+pSML3OtDui2rtGsu7qRCYy2eF/HIYGKQ7XvbNUz6mUHIbQ/NgjgxkiJNajglmFW7LHkfWsT9PpHcloQ1+S91WZictJJYpx2RqbxVbtOHl
 build_script:
 - pwsh: |
     Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
