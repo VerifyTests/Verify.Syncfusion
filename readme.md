@@ -26,6 +26,7 @@ https://nuget.org/packages/Verify.Aspose/
 <!-- snippet: ModuleInitializer.cs -->
 <a id='snippet-ModuleInitializer.cs'></a>
 ```cs
+using Syncfusion.Licensing;
 using VerifyTests;
 
 public static class ModuleInitializer
@@ -33,11 +34,17 @@ public static class ModuleInitializer
     [ModuleInitializer]
     public static void Initialize()
     {
+        var key = Environment.GetEnvironmentVariable("SyncfusionLicense");
+        if (key != null)
+        {
+            SyncfusionLicenseProvider.RegisterLicense(key);
+        }
+
         VerifySyncfusion.Initialize();
     }
 }
 ```
-<sup><a href='/src/Tests/ModuleInitializer.cs#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ModuleInitializer.cs#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -156,9 +163,19 @@ public Task VerifyExcelStream()
 <sup><a href='/src/Tests/Samples.VerifyExcel.00.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-[Samples.VerifyExcel.01.verified.png](/src/Tests/Samples.VerifyExcel.01.verified.png):
-
-<img src="/src/Tests/Samples.VerifyExcel.01.verified.png" width="200px">
+<!-- snippet: Samples.VerifyExcel.01.verified.csv -->
+<a id='snippet-Samples.VerifyExcel.01.verified.csv'></a>
+```csv
+0,First Name,Last Name,Gender,Country,Age,Date,Id
+1,Dulce,Abril,Female,United States,32,15/10/2017,1562
+2,Mara,Hashimoto,Female,Great Britain,25,16/08/2016,1582
+3,Philip,Gent,Male,France,36,21/05/2015,2587
+4,Kathleen,Hanner,Female,United States,25,15/10/2017,3549
+5,Nereida,Magwood,Female,United States,58,16/08/2016,2468
+6,Gaston,Brumm,Male,United States,24,21/05/2015,2554
+```
+<sup><a href='/src/Tests/Samples.VerifyExcel.01.verified.csv#L1-L849' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.01.verified.csv' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 
 ### Word
