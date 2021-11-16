@@ -1,13 +1,13 @@
-# <img src="/src/icon.png" height="30px"> Verify.Aspose
+# <img src="/src/icon.png" height="30px"> Verify.Syncfusion
 
-[![Build status](https://ci.appveyor.com/api/projects/status/7k8hh0guut2ioak2?svg=true)](https://ci.appveyor.com/project/SimonCropp/Verify-Aspose)
-[![NuGet Status](https://img.shields.io/nuget/v/Verify.Aspose.svg)](https://www.nuget.org/packages/Verify.Aspose/)
+[![Build status](https://ci.appveyor.com/api/projects/status/hkr80o3jgok632nw?svg=true)](https://ci.appveyor.com/project/SimonCropp/Verify-Syncfusion)
+[![NuGet Status](https://img.shields.io/nuget/v/Verify.Syncfusion.svg)](https://www.nuget.org/packages/Verify.Syncfusion/)
 
-Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of documents via [Aspose](https://www.aspose.com/).
+Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of documents via [Syncfusion File Formats](https://help.syncfusion.com/file-formats/introduction/).
 
-Converts documents (pdf, docx, xslx, and pptx) to png for verification.
+Converts documents (pdf, docx, xslx, and pptx) to png/csv for verification.
 
-An [Aspose License](https://purchase.aspose.com/policies/license-types) is required to use this tool.
+An [Syncfusion License](https://www.syncfusion.com/sales/licensing) is required to use this tool.
 
 <a href='https://dotnetfoundation.org' alt='Part of the .NET Foundation'><img src='https://raw.githubusercontent.com/VerifyTests/Verify/master/docs/dotNetFoundation.svg' height='30px'></a><br>
 Part of the <a href='https://dotnetfoundation.org' alt=''>.NET Foundation</a>
@@ -21,7 +21,7 @@ https://nuget.org/packages/Verify.Aspose/
 ## Usage
 
 
-### Enable Verify.Aspose
+### Enable Verify.Syncfusion
 
 <!-- snippet: ModuleInitializer.cs -->
 <a id='snippet-ModuleInitializer.cs'></a>
