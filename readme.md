@@ -15,7 +15,7 @@ Part of the <a href='https://dotnetfoundation.org' alt=''>.NET Foundation</a>
 
 ## NuGet package
 
-https://nuget.org/packages/Verify.Aspose/
+https://nuget.org/packages/Verify.Syncfusion/
 
 
 ## Usage
