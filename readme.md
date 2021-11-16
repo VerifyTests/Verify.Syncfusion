@@ -26,7 +26,6 @@ https://nuget.org/packages/Verify.Syncfusion/
 <!-- snippet: ModuleInitializer.cs -->
 <a id='snippet-ModuleInitializer.cs'></a>
 ```cs
-using Syncfusion.Licensing;
 using VerifyTests;
 
 public static class ModuleInitializer
@@ -34,17 +33,11 @@ public static class ModuleInitializer
     [ModuleInitializer]
     public static void Initialize()
     {
-        var key = Environment.GetEnvironmentVariable("SyncfusionLicense");
-        if (key != null)
-        {
-            SyncfusionLicenseProvider.RegisterLicense(key);
-        }
-        
         VerifySyncfusion.Initialize();
     }
 }
 ```
-<sup><a href='/src/Tests/ModuleInitializer.cs#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ModuleInitializer.cs#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
