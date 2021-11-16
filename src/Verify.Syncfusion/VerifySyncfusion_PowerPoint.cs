@@ -19,12 +19,14 @@ public static partial class VerifySyncfusion
     static IEnumerable<Target> GetPowerPointStreams(IPresentation document, IReadOnlyDictionary<string, object> settings)
     {
         var renderer = new PresentationRenderer();
+
+        document.PresentationRenderer = renderer;
         var pagesToInclude = settings.GetPagesToInclude(document.Slides.Count);
         for (var index = 0; index < pagesToInclude; index++)
         {
             var slide = document.Slides[index];
-            var image = renderer.ConvertToImage(slide, ExportImageFormat.Png);
-            yield return new("svg", image);
+            var image = slide.ConvertToImage(ExportImageFormat.Png);
+            yield return new("png", image);
         }
     }
 }
