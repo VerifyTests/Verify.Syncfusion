@@ -260,29 +260,26 @@ public Task VerifyPowerPointStream()
 <a id='snippet-Samples.VerifyPowerPoint.00.verified.txt'></a>
 ```txt
 {
-  AppVersion: 16.0000,
-  NameOfApplication: Microsoft Office PowerPoint,
-  Company: ,
-  Manager: ,
-  PresentationFormat: Custom,
-  ApplicationTemplate: ,
   Title: Lorem ipsum,
   Subject: ,
   Author: simon,
   Keywords: ,
   Comments: ,
-  Category: ,
-  CreatedTime: DateTime_1,
-  LastSavedTime: DateTime_2,
-  LastPrinted: DateTime_3,
-  LastSavedBy: Simon Cropp,
+  Template: ,
+  LastAuthor: Simon Cropp,
   RevisionNumber: 1,
-  ContentStatus: ,
-  ContentType: ,
-  HyperlinkBase: 
+  LastPrinted: DateTime_1,
+  CreationDate: DateTime_2,
+  LastSaveDate: DateTime_3,
+  WordCount: 231,
+  PresentationTarget: Custom,
+  ParagraphCount: 14,
+  SlideCount: 3,
+  NoteCount: 3,
+  ApplicationName: Microsoft Office PowerPoint
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyPowerPoint.00.verified.txt#L1-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPowerPoint.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPowerPoint.00.verified.txt#L1-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPowerPoint.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [Samples.VerifyPowerPoint.01.verified.svg](/src/Tests/Samples.VerifyPowerPoint.01.verified.svg):
