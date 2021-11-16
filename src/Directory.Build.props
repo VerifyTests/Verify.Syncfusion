@@ -2,9 +2,9 @@
 <Project>
   <PropertyGroup>
     <NoWarn>CS1591;CS0649</NoWarn>
-    <Version>2.11.0</Version>
+    <Version>0.1.0</Version>
     <AssemblyVersion>1.0.0</AssemblyVersion>
-    <PackageTags>Aspose, Verify</PackageTags>
-    <Description>Extends Verify (https://github.com/VerifyTests/Verify) to allow verification via Aspose.</Description>
+    <PackageTags>Syncfusion, Verify</PackageTags>
+    <Description>Extends Verify (https://github.com/VerifyTests/Verify) to allow verification via Syncfusion.</Description>
   </PropertyGroup>
 </Project>
