@@ -5,7 +5,5 @@
   DisplayWorkbookTabs: true,
   Version: Xlsx,
   StandardFont: Arial,
-  StandardFontSize: 10.0,
-  MaxColumnCount: 16384,
-  MaxRowCount: 1048576
+  StandardFontSize: 10.0
 }

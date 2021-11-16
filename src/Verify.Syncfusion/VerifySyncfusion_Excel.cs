@@ -45,8 +45,6 @@ public static partial class VerifySyncfusion
             book.ReadOnlyRecommended,
             book.StandardFont,
             book.StandardFontSize,
-            book.MaxColumnCount,
-            book.MaxRowCount,
         };
     }
 
@@ -54,8 +52,8 @@ public static partial class VerifySyncfusion
     {
         foreach (var sheet in book.Worksheets)
         {
-            var stream = new MemoryStream();
-            sheet.SaveAs(stream, ",", Encoding.UTF8);
+            using var stream = new MemoryStream();
+            sheet.SaveAs(stream, ", ", Encoding.UTF8);
             yield return new("csv", stream.ReadAsString());
         }
     }
