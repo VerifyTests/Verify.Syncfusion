@@ -9,7 +9,6 @@
     <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="19.3.0.53" />
     <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="19.3.0.53" />
     <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="19.3.0.53" />
-    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="19.3.0.53" />
     <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="19.3.0.53" />
     <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="19.3.0.53" />
     <PackageReference Include="ProjectDefaults" Version="1.0.61" PrivateAssets="All" />
