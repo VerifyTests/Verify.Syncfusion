@@ -201,16 +201,18 @@ public Task VerifyWordStream()
 <a id='snippet-Samples.VerifyWord.00.verified.txt'></a>
 ```txt
 {
-  HasRevisions: False,
-  DefaultLocale: EnglishUS,
-  Properties: {
-    CreateTime: DateTime_1,
-    Language: en-US,
-    TotalEditingTime: 991904
-  }
+  LastAuthor: Simon Cropp,
+  Company: ,
+  LinesCount: 44,
+  ParagraphCount: 40,
+  WordCount: 909,
+  PageCount: 4,
+  ApplicationName: Microsoft Office Word,
+  CreateDate: DateTime_1,
+  RevisionNumber: 2
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyWord.00.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyWord.00.verified.txt#L1-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [Samples.VerifyWord.01.verified.png](/src/Tests/Samples.VerifyWord.01.verified.png):

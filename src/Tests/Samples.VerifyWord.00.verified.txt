@@ -1,9 +1,11 @@
 ﻿{
-  HasRevisions: False,
-  DefaultLocale: EnglishUS,
-  Properties: {
-    CreateTime: DateTime_1,
-    Language: en-US,
-    TotalEditingTime: 991904
-  }
+  LastAuthor: Simon Cropp,
+  Company: ,
+  LinesCount: 44,
+  ParagraphCount: 40,
+  WordCount: 909,
+  PageCount: 4,
+  ApplicationName: Microsoft Office Word,
+  CreateDate: DateTime_1,
+  RevisionNumber: 2
 }

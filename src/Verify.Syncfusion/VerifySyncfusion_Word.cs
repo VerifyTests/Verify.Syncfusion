@@ -1,6 +1,5 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using Syncfusion.DocIORenderer;
 
 namespace VerifyTests;
 
@@ -19,26 +18,42 @@ public static partial class VerifySyncfusion
     static ConversionResult Convert(Stream stream, IReadOnlyDictionary<string, object> settings, FormatType formatType)
     {
         var document = new WordDocument(stream, formatType);
+        document.UpdateWordCount();
+        document.UpdateDocumentFields();
         return ConvertWord(document, settings);
     }
 
     static ConversionResult ConvertWord(WordDocument document, IReadOnlyDictionary<string, object> settings)
     {
-        return new(GetInfo(document), GetWordStreams(document, settings).ToList());
+        return new(GetInfo(document), GetWordStreams(document).ToList());
     }
 
     static object GetInfo(IWordDocument document)
     {
+        var properties = document.BuiltinDocumentProperties;
         return new
         {
-            document.BuiltinDocumentProperties.Author,
+            properties.Author,
+            properties.LastAuthor,
+            properties.Subject,
+            properties.Category,
+            properties.Company,
+            properties.Manager,
+            properties.LinesCount,
+            properties.ParagraphCount,
+            properties.WordCount,
+            properties.PageCount,
+            properties.ApplicationName,
+            properties.CreateDate,
+            properties.Keywords,
+            properties.RevisionNumber,
         };
     }
 
-    static IEnumerable<Target> GetWordStreams(WordDocument document, IReadOnlyDictionary<string, object> settings)
+    static IEnumerable<Target> GetWordStreams(WordDocument document)
     {
-        using var renderer = new DocIORenderer();
-        using var convertToPdf = renderer.ConvertToPDF(document);
-        return GetPdfStreams(convertToPdf, settings);
+        using var stream = new MemoryStream();
+        document.SaveTxt(stream, Encoding.UTF8);
+        yield return new Target("txt", stream.ReadAsString());
     }
 }

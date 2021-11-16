@@ -15,4 +15,19 @@
 
         return input is not null;
     }
+
+    public static void MoveToStart(this Stream stream)
+    {
+        if (stream.CanSeek)
+        {
+            stream.Position = 0;
+        }
+    }
+
+    public static string ReadAsString(this Stream stream)
+    {
+        stream.MoveToStart();
+        using StreamReader reader = new(stream);
+        return reader.ReadToEnd();
+    }
 }
