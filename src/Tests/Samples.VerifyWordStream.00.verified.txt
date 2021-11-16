@@ -1,11 +1,11 @@
 ﻿{
   LastAuthor: Simon Cropp,
   Company: ,
-  LinesCount: 44,
-  ParagraphCount: 40,
-  WordCount: 909,
-  PageCount: 4,
+  LinesCount: 9,
+  ParagraphCount: 10,
+  WordCount: 180,
+  PageCount: 1,
   ApplicationName: Microsoft Office Word,
   CreateDate: DateTime_1,
-  RevisionNumber: 2
+  RevisionNumber: 3
 }

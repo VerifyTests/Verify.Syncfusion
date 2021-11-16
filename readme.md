@@ -220,21 +220,36 @@ public Task VerifyWordStream()
 {
   LastAuthor: Simon Cropp,
   Company: ,
-  LinesCount: 44,
-  ParagraphCount: 40,
-  WordCount: 909,
-  PageCount: 4,
+  LinesCount: 9,
+  ParagraphCount: 10,
+  WordCount: 180,
+  PageCount: 1,
   ApplicationName: Microsoft Office Word,
   CreateDate: DateTime_1,
-  RevisionNumber: 2
+  RevisionNumber: 3
 }
 ```
 <sup><a href='/src/Tests/Samples.VerifyWord.00.verified.txt#L1-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-[Samples.VerifyWord.01.verified.png](/src/Tests/Samples.VerifyWord.01.verified.png):
+<!-- snippet: Samples.VerifyWord.01.verified.txt -->
+<a id='snippet-Samples.VerifyWord.01.verified.txt'></a>
+```txt
+Lorem ipsum 
 
-<img src="/src/Tests/Samples.VerifyWord.01.verified.png" width="200px">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac faucibus odio. 
+
+Vestibulum neque massa, scelerisque sit amet ligula eu, congue molestie mi. Praesent ut varius sem. Nullam at porttitor arcu, nec lacinia nisi. Ut ac dolor vitae odio interdum condimentum. Vivamus dapibus sodales ex, vitae malesuada ipsum cursus convallis. Maecenas sed egestas nulla, ac condimentum orci. Mauris diam felis, vulputate ac suscipit et, iaculis non est. Curabitur semper arcu ac ligula semper, nec luctus nisl blandit. Integer lacinia ante ac libero lobortis imperdiet. Nullam mollis convallis ipsum, ac accumsan nunc vehicula vitae. Nulla eget justo in felis tristique fringilla. Morbi sit amet tortor quis risus auctor condimentum. Morbi in ullamcorper elit. Nulla iaculis tellus sit amet mauris tempus fringilla.
+Maecenas mauris lectus, lobortis et purus mattis, blandit dictum tellus.
+* Maecenas non lorem quis tellus placerat varius. 
+* Nulla facilisi. 
+* Aenean congue fringilla justo ut aliquam. 
+* Mauris id ex erat. Nunc vulputate neque vitae justo facilisis, non condimentum ante sagittis. 
+* Morbi viverra semper lorem nec molestie. 
+* Maecenas tincidunt est efficitur ligula euismod, sit amet ornare est vulputate.
+```
+<sup><a href='/src/Tests/Samples.VerifyWord.01.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord.01.verified.txt' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 
 ### PowerPoint
