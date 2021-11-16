@@ -1,2 +1,14 @@
-# Google App Engine generated folder
-appengine-generated/
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio cache directory
+.vs/
+
+nugets/
+
+# ReSharper is a .NET coding add-in
+*.DotSettings.user
+
+# Approval Tests
+*.received.*
