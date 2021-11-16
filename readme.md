@@ -105,7 +105,7 @@ public Task VerifyPdfStream()
 
 [Samples.VerifyPdf.01.verified.png](/src/Tests/Samples.VerifyPdf.01.verified.png):
 
-<img src="/src/Tests/Samples.VerifyPdf.01.verified.png" width="200px">
+<img src="/raw/main/src/Tests/Samples.VerifyPdf.01.verified.png" width="200px">
 
 
 ### Excel
@@ -316,7 +316,7 @@ public Task VerifyPowerPointStream()
 
 [Samples.VerifyPowerPoint.01.verified.png](/src/Tests/Samples.VerifyPowerPoint.01.verified.png):
 
-<img src="/src/Tests/Samples.VerifyPowerPoint.01.png" width="200px">
+<img src="/raw/main/src/Tests/Samples.VerifyPowerPoint.01.png" width="200px">
 
 
 ## File Samples
