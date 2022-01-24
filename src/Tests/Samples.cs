@@ -19,7 +19,7 @@ public class Samples
     public Task VerifyPdfResolution()
     {
         return Verifier.VerifyFile("sample.pdf")
-            .PdfPngDevice(document => new(){ScaleFactor = 4});
+            .PdfPngDevice(_ => new(){ScaleFactor = 4});
     }
 
     #region VerifyPdfStream
