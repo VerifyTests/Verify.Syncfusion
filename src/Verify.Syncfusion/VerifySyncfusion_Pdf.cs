@@ -9,7 +9,7 @@ public static partial class VerifySyncfusion
     static ConversionResult ConvertPdf(Stream stream, IReadOnlyDictionary<string, object> settings)
     {
         using var document = new PdfLoadedDocument(stream);
-        
+
         return ConvertPdf(document, settings);
     }
 
@@ -62,8 +62,8 @@ public static partial class VerifySyncfusion
         var pages = document.Pages.Cast<PdfPageBase>().ToList();
         return GetPdfStreams(document, settings, pages);
     }
-    
-    private static IEnumerable<Target> GetPdfStreams(
+
+    static IEnumerable<Target> GetPdfStreams(
         PdfDocumentBase document,
         IReadOnlyDictionary<string, object> settings,
         List<PdfPageBase> pages)
