@@ -25,7 +25,7 @@ public static partial class VerifySyncfusion
         return new(info, GetPdfStreams(document, settings).ToList());
     }
 
-    private static object GetInfo(PdfDocumentBase document, PdfDocumentInformation documentDocumentInformation)
+    static object GetInfo(PdfDocumentBase document, PdfDocumentInformation documentDocumentInformation)
     {
         var info = documentDocumentInformation;
         if (info.Title == "Syncfusion" ||

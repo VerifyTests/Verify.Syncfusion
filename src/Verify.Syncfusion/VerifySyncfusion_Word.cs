@@ -54,6 +54,6 @@ public static partial class VerifySyncfusion
     {
         using var stream = new MemoryStream();
         document.SaveTxt(stream, Encoding.UTF8);
-        yield return new Target("txt", stream.ReadAsString());
+        yield return new("txt", stream.ReadAsString());
     }
 }
