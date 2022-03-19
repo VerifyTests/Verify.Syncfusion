@@ -1,9 +1,6 @@
 * text
 *.snk binary
-*.json -text
 *.pdf binary
 *.docx binary
 *.png binary
 *.xlsx binary
-.editorconfig -text
-*.sln.DotSettings -text
