@@ -24,9 +24,8 @@ public static partial class VerifySyncfusion
         return new(info, GetExcelStreams(book).ToList());
     }
 
-    static object GetInfo(IWorkbook book)
-    {
-        return new
+    static object GetInfo(IWorkbook book) =>
+        new
         {
             book.CodeName,
             book.Date1904,
@@ -46,7 +45,6 @@ public static partial class VerifySyncfusion
             book.StandardFont,
             book.StandardFontSize,
         };
-    }
 
     static IEnumerable<Target> GetExcelStreams(IWorkbook book)
     {

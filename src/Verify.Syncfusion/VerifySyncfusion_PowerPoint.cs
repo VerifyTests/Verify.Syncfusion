@@ -11,10 +11,8 @@ public static partial class VerifySyncfusion
         return ConvertPowerPoint(document, settings);
     }
 
-    static ConversionResult ConvertPowerPoint(IPresentation document, IReadOnlyDictionary<string, object> settings)
-    {
-        return new(document.BuiltInDocumentProperties, GetPowerPointStreams(document, settings).ToList());
-    }
+    static ConversionResult ConvertPowerPoint(IPresentation document, IReadOnlyDictionary<string, object> settings) =>
+        new(document.BuiltInDocumentProperties, GetPowerPointStreams(document, settings).ToList());
 
     static IEnumerable<Target> GetPowerPointStreams(IPresentation document, IReadOnlyDictionary<string, object> settings)
     {

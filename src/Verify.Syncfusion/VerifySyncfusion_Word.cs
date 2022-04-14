@@ -5,15 +5,11 @@ namespace VerifyTests;
 
 public static partial class VerifySyncfusion
 {
-    static ConversionResult ConvertDocx(Stream stream, IReadOnlyDictionary<string, object> settings)
-    {
-        return Convert(stream, settings, FormatType.Docx);
-    }
+    static ConversionResult ConvertDocx(Stream stream, IReadOnlyDictionary<string, object> settings) =>
+        Convert(stream, settings, FormatType.Docx);
 
-    static ConversionResult ConvertDoc(Stream stream, IReadOnlyDictionary<string, object> settings)
-    {
-        return Convert(stream, settings, FormatType.Doc);
-    }
+    static ConversionResult ConvertDoc(Stream stream, IReadOnlyDictionary<string, object> settings) =>
+        Convert(stream, settings, FormatType.Doc);
 
     static ConversionResult Convert(Stream stream, IReadOnlyDictionary<string, object> settings, FormatType formatType)
     {
@@ -23,10 +19,8 @@ public static partial class VerifySyncfusion
         return ConvertWord(document, settings);
     }
 
-    static ConversionResult ConvertWord(WordDocument document, IReadOnlyDictionary<string, object> settings)
-    {
-        return new(GetInfo(document), GetWordStreams(document).ToList());
-    }
+    static ConversionResult ConvertWord(WordDocument document, IReadOnlyDictionary<string, object> settings) =>
+        new(GetInfo(document), GetWordStreams(document).ToList());
 
     static object GetInfo(IWordDocument document)
     {

@@ -5,10 +5,8 @@ namespace VerifyTests;
 
 public static class VerifySyncfusionSettings
 {
-    public static void PagesToInclude(this VerifySettings settings, int count)
-    {
+    public static void PagesToInclude(this VerifySettings settings, int count) =>
         settings.Context["VerifySyncfusionPagesToInclude"] = count;
-    }
 
     public static SettingsTask PagesToInclude(this SettingsTask settings, int count)
     {
@@ -26,10 +24,8 @@ public static class VerifySyncfusionSettings
         return Math.Min(count, (int) value);
     }
 
-    public static void PdfPngDevice(this VerifySettings settings, Func<PdfDocumentBase, PdfRenderer> func)
-    {
+    public static void PdfPngDevice(this VerifySettings settings, Func<PdfDocumentBase, PdfRenderer> func) =>
         settings.Context["VerifySyncfusionPdfPngDevice"] = func;
-    }
 
     public static SettingsTask PdfPngDevice(this SettingsTask settings, Func<PdfDocumentBase, PdfRenderer> func)
     {
