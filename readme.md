@@ -27,13 +27,11 @@ https://nuget.org/packages/Verify.Syncfusion/
 public static class ModuleInitializer
 {
     [ModuleInitializer]
-    public static void Initialize()
-    {
+    public static void Initialize() =>
         VerifySyncfusion.Initialize();
-    }
 }
 ```
-<sup><a href='/src/Tests/ModuleInitializer.cs#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ModuleInitializer.cs#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-ModuleInitializer.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -46,12 +44,10 @@ public static class ModuleInitializer
 <a id='snippet-verifypdf'></a>
 ```cs
 [Test]
-public Task VerifyPdf()
-{
-    return VerifyFile("sample.pdf");
-}
+public Task VerifyPdf() =>
+    VerifyFile("sample.pdf");
 ```
-<sup><a href='/src/Tests/Samples.cs#L4-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdf' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L4-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdf' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -61,13 +57,11 @@ public Task VerifyPdf()
 <a id='snippet-verifypdfstream'></a>
 ```cs
 [Test]
-public Task VerifyPdfStream()
-{
-    return Verify(File.OpenRead("sample.pdf"))
+public Task VerifyPdfStream() =>
+    Verify(File.OpenRead("sample.pdf"))
         .UseExtension("pdf");
-}
 ```
-<sup><a href='/src/Tests/Samples.cs#L21-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdfstream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L17-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypdfstream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -106,12 +100,10 @@ public Task VerifyPdfStream()
 <a id='snippet-verifyexcel'></a>
 ```cs
 [Test]
-public Task VerifyExcel()
-{
-    return VerifyFile("sample.xlsx");
-}
+public Task VerifyExcel() =>
+    VerifyFile("sample.xlsx");
 ```
-<sup><a href='/src/Tests/Samples.cs#L57-L65' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyexcel' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L47-L53' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyexcel' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -121,13 +113,11 @@ public Task VerifyExcel()
 <a id='snippet-verifyexcelstream'></a>
 ```cs
 [Test]
-public Task VerifyExcelStream()
-{
-    return Verify(File.OpenRead("sample.xlsx"))
+public Task VerifyExcelStream() =>
+    Verify(File.OpenRead("sample.xlsx"))
         .UseExtension("xlsx");
-}
 ```
-<sup><a href='/src/Tests/Samples.cs#L67-L76' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyexcelstream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L55-L62' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyexcelstream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -1016,12 +1006,10 @@ Created with a trial version of Syncfusion Essential XlsIO
 <a id='snippet-verifyword'></a>
 ```cs
 [Test]
-public Task VerifyWord()
-{
-    return VerifyFile("sample.docx");
-}
+public Task VerifyWord() =>
+    VerifyFile("sample.docx");
 ```
-<sup><a href='/src/Tests/Samples.cs#L78-L86' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyword' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L64-L70' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyword' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -1031,13 +1019,11 @@ public Task VerifyWord()
 <a id='snippet-verifywordstream'></a>
 ```cs
 [Test]
-public Task VerifyWordStream()
-{
-    return Verify(File.OpenRead("sample.docx"))
+public Task VerifyWordStream() =>
+    Verify(File.OpenRead("sample.docx"))
         .UseExtension("docx");
-}
 ```
-<sup><a href='/src/Tests/Samples.cs#L88-L97' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifywordstream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L72-L79' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifywordstream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -1091,12 +1077,10 @@ Maecenas mauris lectus, lobortis et purus mattis, blandit dictum tellus.
 <a id='snippet-verifypowerpoint'></a>
 ```cs
 [Test]
-public Task VerifyPowerPoint()
-{
-    return VerifyFile("sample.pptx");
-}
+public Task VerifyPowerPoint() =>
+    VerifyFile("sample.pptx");
 ```
-<sup><a href='/src/Tests/Samples.cs#L34-L42' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypowerpoint' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L28-L34' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypowerpoint' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -1106,13 +1090,11 @@ public Task VerifyPowerPoint()
 <a id='snippet-verifypowerpointstream'></a>
 ```cs
 [Test]
-public Task VerifyPowerPointStream()
-{
-    return Verify(File.OpenRead("sample.pptx"))
+public Task VerifyPowerPointStream() =>
+    Verify(File.OpenRead("sample.pptx"))
         .UseExtension("pptx");
-}
 ```
-<sup><a href='/src/Tests/Samples.cs#L44-L53' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypowerpointstream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L36-L43' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifypowerpointstream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
