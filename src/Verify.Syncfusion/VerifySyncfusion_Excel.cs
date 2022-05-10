@@ -52,7 +52,7 @@ public static partial class VerifySyncfusion
         {
             using var stream = new MemoryStream();
             sheet.SaveAs(stream, ", ", Encoding.UTF8);
-            yield return new("csv", stream.ReadAsString());
+            yield return new("csv", stream.ReadAsString(), null);
         }
     }
 }

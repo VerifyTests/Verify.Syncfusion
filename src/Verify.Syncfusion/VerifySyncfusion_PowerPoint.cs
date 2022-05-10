@@ -24,7 +24,7 @@ public static partial class VerifySyncfusion
         {
             var slide = document.Slides[index];
             var image = slide.ConvertToImage(ExportImageFormat.Png);
-            yield return new("png", image);
+            yield return new("png", image, null);
         }
     }
 }
