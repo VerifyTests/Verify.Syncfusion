@@ -1,4 +1,6 @@
-﻿using System.Drawing.Imaging;
+﻿using System.Drawing;
+using System.Drawing.Imaging;
+using SkiaSharp;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Parsing;
 
@@ -79,9 +81,15 @@ public static partial class VerifySyncfusion
             var page = pages[index];
             //TODO: also export page text
             var pngStream = new MemoryStream();
+#if NET6_0_OR_GREATER
+            var image = pngDevice.ExportAsImage(index);
+            var skData = image.Encode(SKEncodedImageFormat.Png,100);
+            skData.SaveTo(pngStream);
+            #else
             var bitmap = pngDevice.ExportAsImage(index);
             bitmap.Save(pngStream, ImageFormat.Png);
-            yield return new("png", pngStream);
+#endif
+            yield return new("png", pngStream, null);
         }
     }
 }
