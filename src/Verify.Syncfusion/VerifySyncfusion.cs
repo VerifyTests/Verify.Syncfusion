@@ -1,6 +1,4 @@
 ﻿using Syncfusion.DocIO.DLS;
-using Syncfusion.Pdf;
-using Syncfusion.Pdf.Parsing;
 using Syncfusion.Presentation;
 using Syncfusion.XlsIO;
 
