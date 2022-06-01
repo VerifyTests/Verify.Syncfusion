@@ -52,7 +52,27 @@ public static partial class VerifySyncfusion
         {
             using var stream = new MemoryStream();
             sheet.SaveAs(stream, ", ", Encoding.UTF8);
-            yield return new("csv", stream.ReadAsString(), null);
+            var stringData = ReadNonEmptyLines(stream);
+            yield return new("csv", stringData);
         }
+    }
+
+    static string ReadNonEmptyLines(MemoryStream stream)
+    {
+        stream.Position = 0;
+        var builder = new StringBuilder();
+        using (var writer = new StringWriter(builder))
+        using (var reader = new StreamReader(stream))
+        {
+            while (reader.ReadLine() is { } line)
+            {
+                if (!string.IsNullOrWhiteSpace(line))
+                {
+                    writer.WriteLine(line);
+                }
+            }
+        }
+
+        return builder.ToString();
     }
 }

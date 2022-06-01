@@ -1,7 +1,7 @@
 ﻿{
   Title: Lorem ipsum,
   Subject: ,
-  Author: simon,
+  Author: Simon Cropp,
   Keywords: ,
   Comments: ,
   Template: ,
@@ -15,5 +15,7 @@
   ParagraphCount: 14,
   SlideCount: 3,
   NoteCount: 3,
+  ScaleCrop: false,
+  LinksDirty: false,
   ApplicationName: Microsoft Office PowerPoint
 }

@@ -1,10 +1,4 @@
-﻿using System.Drawing;
-using System.Drawing.Imaging;
-using SkiaSharp;
-using Syncfusion.Pdf;
-using Syncfusion.Pdf.Parsing;
-
-namespace VerifyTests;
+﻿namespace VerifyTests;
 
 public static partial class VerifySyncfusion
 {
@@ -89,7 +83,7 @@ public static partial class VerifySyncfusion
             var bitmap = pngDevice.ExportAsImage(index);
             bitmap.Save(pngStream, ImageFormat.Png);
 #endif
-            yield return new("png", pngStream, null);
+            yield return new("png", pngStream);
         }
     }
 }

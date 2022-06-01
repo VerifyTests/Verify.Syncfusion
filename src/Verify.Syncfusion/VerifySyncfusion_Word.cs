@@ -48,6 +48,6 @@ public static partial class VerifySyncfusion
     {
         using var stream = new MemoryStream();
         document.SaveTxt(stream, Encoding.UTF8);
-        yield return new("txt", stream.ReadAsString(), null);
+        yield return new("txt", stream.ReadAsString());
     }
 }

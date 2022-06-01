@@ -1,5 +1,4 @@
 ﻿using Syncfusion.EJ2.PdfViewer;
-using Syncfusion.Pdf;
 
 namespace VerifyTests;
 
