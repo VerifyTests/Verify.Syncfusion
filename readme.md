@@ -128,15 +128,23 @@ public Task VerifyExcelStream() =>
 ```txt
 {
   CodeName: ThisWorkbook,
+  Date1904: false,
+  HasMacros: false,
+  DisableMacrosStart: false,
   DetectDateTimeInValue: true,
   ArgumentsSeparator: ,,
   DisplayWorkbookTabs: true,
+  IsRightToLeft: false,
+  IsWindowProtection: false,
   Version: Xlsx,
+  IsCellProtection: false,
+  ReadOnly: false,
+  ReadOnlyRecommended: false,
   StandardFont: Arial,
   StandardFontSize: 10.0
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyExcel.00.verified.txt#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyExcel.00.verified.txt#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 <!-- snippet: Samples.VerifyExcel.01.verified.csv -->
@@ -195,7 +203,7 @@ public Task VerifyWordStream() =>
   Company: ,
   LinesCount: 9,
   ParagraphCount: 10,
-  WordCount: 180,
+  WordCount: 178,
   PageCount: 1,
   ApplicationName: Microsoft Office Word,
   CreateDate: DateTime_1,
@@ -278,10 +286,12 @@ public Task VerifyPowerPointStream() =>
   ParagraphCount: 14,
   SlideCount: 3,
   NoteCount: 3,
+  ScaleCrop: false,
+  LinksDirty: false,
   ApplicationName: Microsoft Office PowerPoint
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyPowerPoint.00.verified.txt#L1-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPowerPoint.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPowerPoint.00.verified.txt#L1-L21' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPowerPoint.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [Samples.VerifyPowerPoint.01.verified.png](/src/Tests/Samples.VerifyPowerPoint.01.verified.png):
