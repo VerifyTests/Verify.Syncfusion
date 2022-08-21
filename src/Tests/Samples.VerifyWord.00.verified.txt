@@ -3,7 +3,7 @@
   Company: ,
   LinesCount: 9,
   ParagraphCount: 10,
-  WordCount: 180,
+  WordCount: 178,
   PageCount: 1,
   ApplicationName: Microsoft Office Word,
   CreateDate: DateTime_1,
