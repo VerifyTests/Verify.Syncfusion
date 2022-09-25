@@ -73,6 +73,8 @@ public static partial class VerifySyncfusion
         for (var index = 0; index < pagesToInclude; index++)
         {
             var page = pages[index];
+            var text = page.ExtractText();
+            yield return new("txt", text);
             //TODO: also export page text
             var pngStream = new MemoryStream();
 #if NET6_0_OR_GREATER

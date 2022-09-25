@@ -17,9 +17,11 @@ public class Samples
     #region VerifyPdfStream
 
     [Test]
-    public Task VerifyPdfStream() =>
-        Verify(File.OpenRead("sample.pdf"))
-            .UseExtension("pdf");
+    public Task VerifyPdfStream()
+    {
+        var stream = new MemoryStream(File.ReadAllBytes("sample.pdf"));
+        return Verify(stream, "pdf");
+    }
 
     #endregion
 
@@ -36,9 +38,11 @@ public class Samples
     #region VerifyPowerPointStream
 
     [Test]
-    public Task VerifyPowerPointStream() =>
-        Verify(File.OpenRead("sample.pptx"))
-            .UseExtension("pptx");
+    public Task VerifyPowerPointStream()
+    {
+        var stream = new MemoryStream(File.ReadAllBytes("sample.pptx"));
+        return Verify(stream, "pptx");
+    }
 
     #endregion
 
@@ -55,9 +59,11 @@ public class Samples
     #region VerifyExcelStream
 
     [Test]
-    public Task VerifyExcelStream() =>
-        Verify(File.OpenRead("sample.xlsx"))
-            .UseExtension("xlsx");
+    public Task VerifyExcelStream()
+    {
+        var stream = new MemoryStream(File.ReadAllBytes("sample.xlsx"));
+        return Verify(stream, "xlsx");
+    }
 
     #endregion
 
@@ -72,9 +78,11 @@ public class Samples
     #region VerifyWordStream
 
     [Test]
-    public Task VerifyWordStream() =>
-        Verify(File.OpenRead("sample.docx"))
-            .UseExtension("docx");
+    public Task VerifyWordStream()
+    {
+        var stream = new MemoryStream(File.ReadAllBytes("sample.docx"));
+        return Verify(stream, "docx");
+    }
 
     #endregion
 }
