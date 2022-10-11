@@ -64,8 +64,8 @@ public Task VerifyPdfStream()
 
 #### Result
 
-<!-- snippet: Samples.VerifyPdf.00.verified.txt -->
-<a id='snippet-Samples.VerifyPdf.00.verified.txt'></a>
+<!-- snippet: Samples.VerifyPdf#00.verified.txt -->
+<a id='snippet-Samples.VerifyPdf#00.verified.txt'></a>
 ```txt
 {
   PageCount: 2,
@@ -80,7 +80,7 @@ public Task VerifyPdfStream()
   Title: 
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyPdf.00.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPdf#00.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf#00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [Samples.VerifyPdf.01.verified.png](/src/Tests/Samples.VerifyPdf.01.verified.png):
@@ -122,8 +122,8 @@ public Task VerifyExcelStream()
 
 #### Result
 
-<!-- snippet: Samples.VerifyExcel.00.verified.txt -->
-<a id='snippet-Samples.VerifyExcel.00.verified.txt'></a>
+<!-- snippet: Samples.VerifyExcel.verified.txt -->
+<a id='snippet-Samples.VerifyExcel.verified.txt'></a>
 ```txt
 {
   CodeName: ThisWorkbook,
@@ -143,11 +143,11 @@ public Task VerifyExcelStream()
   StandardFontSize: 10.0
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyExcel.00.verified.txt#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyExcel.verified.txt#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-<!-- snippet: Samples.VerifyExcel.01.verified.csv -->
-<a id='snippet-Samples.VerifyExcel.01.verified.csv'></a>
+<!-- snippet: Samples.VerifyExcel.verified.csv -->
+<a id='snippet-Samples.VerifyExcel.verified.csv'></a>
 ```csv
 0, First Name, Last Name, Gender, Country, Age, Date, Id
 1, Dulce, Abril, Female, United States, 32, 15/10/2017, 1562
@@ -158,7 +158,7 @@ public Task VerifyExcelStream()
 6, Gaston, Brumm, Male, United States, 24, 21/05/2015, 2554
 Created with a trial version of Syncfusion Essential XlsIO
 ```
-<sup><a href='/src/Tests/Samples.VerifyExcel.01.verified.csv#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.01.verified.csv' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyExcel.verified.csv#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.verified.csv' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -196,8 +196,8 @@ public Task VerifyWordStream()
 
 #### Result
 
-<!-- snippet: Samples.VerifyWord.00.verified.txt -->
-<a id='snippet-Samples.VerifyWord.00.verified.txt'></a>
+<!-- snippet: Samples.VerifyWord#00.verified.txt -->
+<a id='snippet-Samples.VerifyWord#00.verified.txt'></a>
 ```txt
 {
   LastAuthor: Simon Cropp,
@@ -211,11 +211,11 @@ public Task VerifyWordStream()
   RevisionNumber: 3
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyWord.00.verified.txt#L1-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyWord#00.verified.txt#L1-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-<!-- snippet: Samples.VerifyWord.01.verified.txt -->
-<a id='snippet-Samples.VerifyWord.01.verified.txt'></a>
+<!-- snippet: Samples.VerifyWord#01.verified.txt -->
+<a id='snippet-Samples.VerifyWord#01.verified.txt'></a>
 ```txt
 Created with a trial version of Syncfusion Essential DocIO.
 Lorem ipsum 
@@ -231,7 +231,7 @@ Maecenas mauris lectus, lobortis et purus mattis, blandit dictum tellus.
 * Morbi viverra semper lorem nec molestie. 
 * Maecenas tincidunt est efficitur ligula euismod, sit amet ornare est vulputate.
 ```
-<sup><a href='/src/Tests/Samples.VerifyWord.01.verified.txt#L1-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord.01.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyWord#01.verified.txt#L1-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#01.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -269,8 +269,8 @@ public Task VerifyPowerPointStream()
 
 #### Result
 
-<!-- snippet: Samples.VerifyPowerPoint.00.verified.txt -->
-<a id='snippet-Samples.VerifyPowerPoint.00.verified.txt'></a>
+<!-- snippet: Samples.VerifyPowerPoint.verified.txt -->
+<a id='snippet-Samples.VerifyPowerPoint.verified.txt'></a>
 ```txt
 {
   Title: Lorem ipsum,
@@ -294,7 +294,7 @@ public Task VerifyPowerPointStream()
   ApplicationName: Microsoft Office PowerPoint
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyPowerPoint.00.verified.txt#L1-L21' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPowerPoint.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPowerPoint.verified.txt#L1-L21' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPowerPoint.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [Samples.VerifyPowerPoint.01.verified.png](/src/Tests/Samples.VerifyPowerPoint.01.verified.png):
