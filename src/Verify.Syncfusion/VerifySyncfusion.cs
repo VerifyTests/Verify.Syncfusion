@@ -6,8 +6,17 @@ namespace VerifyTests;
 
 public static partial class VerifySyncfusion
 {
+    public static bool Initialized { get; private set; }
+
     public static void Initialize()
     {
+        if (Initialized)
+        {
+            throw new("Already Initialized");
+        }
+
+        Initialized = true;
+
         VerifierSettings.RegisterFileConverter("xlsx", ConvertExcel);
         VerifierSettings.RegisterFileConverter("xls", ConvertExcel);
         VerifierSettings.RegisterFileConverter<IWorkbook>(ConvertExcel);
