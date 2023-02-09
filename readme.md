@@ -1,5 +1,6 @@
 # <img src="/src/icon.png" height="30px"> Verify.Syncfusion
 
+[![Discussions](https://img.shields.io/badge/Verify-Discussions-yellow?svg=true&label=)](https://github.com/orgs/VerifyTests/discussions)
 [![Build status](https://ci.appveyor.com/api/projects/status/hkr80o3jgok632nw?svg=true)](https://ci.appveyor.com/project/SimonCropp/Verify-Syncfusion)
 [![NuGet Status](https://img.shields.io/nuget/v/Verify.Syncfusion.svg)](https://www.nuget.org/packages/Verify.Syncfusion/)
 
