@@ -9,7 +9,7 @@
     <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="20.4.0.54" />
     <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="20.4.0.54" />
     <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="20.4.0.54" />
-    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="20.4.0.54" />
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="21.1.37" />
     <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="21.1.37" />
     <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="20.4.0.54" />
     <PackageReference Include="ProjectDefaults" Version="1.0.90" PrivateAssets="all" />
