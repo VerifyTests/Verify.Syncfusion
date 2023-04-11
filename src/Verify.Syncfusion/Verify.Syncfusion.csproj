@@ -7,7 +7,7 @@
     <PackageReference Include="Verify" Version="19.12.1" />
     <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="21.1.38" />
     <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="21.1.38" />
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="21.1.38" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="21.1.39" />
     <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="21.1.38" />
     <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="21.1.38" />
     <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="21.1.38" />
