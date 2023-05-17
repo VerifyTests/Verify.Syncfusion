@@ -1,5 +1,6 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
+using Syncfusion.DocIORenderer;
 
 namespace VerifyTests;
 
@@ -49,5 +50,13 @@ public static partial class VerifySyncfusion
         using var stream = new MemoryStream();
         document.SaveTxt(stream, Encoding.UTF8);
         yield return new("txt", stream.ReadAsString());
+
+        using var render = new DocIORenderer();
+        var images = document.RenderAsImages();
+
+        foreach (var image in images)
+        {
+            yield return new("png", image);
+        }
     }
 }
