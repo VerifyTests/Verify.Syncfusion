@@ -165,6 +165,7 @@ Created with a trial version of Syncfusion Excel library or registered the wrong
 
 ### Word
 
+When verifying a Word file or stream, both the textual content of the Word file as well as a png export of the pages in the Word file are verified.
 
 #### Verify a file
 
@@ -237,6 +238,12 @@ Created with a trial version of Syncfusion Word library or registered the wrong 
 <sup><a href='/src/Tests/Samples.VerifyWord#01.verified.txt#L1-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#01.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
+
+[Samples.VerifyWord#00.verified.png](/src/Tests/Samples.VerifyWord#00.verified.png):
+<img src="/src/Tests/Samples.VerifyWord%2300.verified.png" width="200px">
+
+[Samples.VerifyWord#01.verified.png](/src/Tests/Samples.VerifyWord#01.verified.png):
+<img src="/src/Tests/Samples.VerifyWord%2301.verified.png" width="200px">
 
 ### PowerPoint
 
