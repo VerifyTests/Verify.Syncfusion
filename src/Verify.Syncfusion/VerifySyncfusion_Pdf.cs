@@ -77,14 +77,9 @@ public static partial class VerifySyncfusion
             yield return new("txt", text);
             //TODO: also export page text
             var pngStream = new MemoryStream();
-#if NET6_0_OR_GREATER
             var image = pngDevice.ExportAsImage(index);
             var skData = image.Encode(SKEncodedImageFormat.Png,100);
             skData.SaveTo(pngStream);
-            #else
-            var bitmap = pngDevice.ExportAsImage(index);
-            bitmap.Save(pngStream, ImageFormat.Png);
-#endif
             yield return new("png", pngStream);
         }
     }
