@@ -8,6 +8,8 @@ Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of
 
 Converts documents (pdf, docx, xslx, and pptx) to png/csv/text for verification.
 
+**See [Milestones](../../milestones?state=closed) for release notes.**
+
 An [Syncfusion License](https://www.syncfusion.com/sales/licensing) is required to use this tool.
 
 
