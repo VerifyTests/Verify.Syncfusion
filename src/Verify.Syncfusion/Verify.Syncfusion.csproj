@@ -12,7 +12,7 @@
     <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="23.2.5" />
     <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="23.2.4" />
     <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="23.2.4" />
-    <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="23.2.4" />
+    <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="23.2.5" />
     <PackageReference Include="ProjectDefaults" Version="1.0.102" PrivateAssets="all" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
   </ItemGroup>
