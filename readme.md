@@ -13,7 +13,6 @@ Converts documents (pdf, docx, xslx, and pptx) to png/csv/text for verification.
 An [Syncfusion License](https://www.syncfusion.com/sales/licensing) is required to use this tool.
 
 
-
 ## NuGet package
 
 https://nuget.org/packages/Verify.Syncfusion/
@@ -317,7 +316,6 @@ public Task VerifyPowerPointStream()
 ## File Samples
 
 http://file-examples.com/
-
 
 
 ## Icon
