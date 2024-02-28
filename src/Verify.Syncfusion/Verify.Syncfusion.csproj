@@ -13,6 +13,6 @@
     <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="24.2.7" />
     <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="24.2.8" />
     <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="24.2.8" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.112" PrivateAssets="all" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.114" PrivateAssets="all" />
   </ItemGroup>
 </Project>
