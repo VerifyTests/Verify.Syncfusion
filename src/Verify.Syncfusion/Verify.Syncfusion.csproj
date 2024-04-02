@@ -6,7 +6,7 @@
     <PackageReference Include="Argon" Version="0.17.0" />
     <PackageReference Include="Verify" Version="23.6.0" />
     <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="25.1.37" />
-    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="25.1.37" />
+    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="25.1.38" />
     <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="25.1.35" />
     <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="25.1.37" />
     <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="25.1.37" />
