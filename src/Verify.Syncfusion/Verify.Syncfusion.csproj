@@ -3,15 +3,15 @@
     <TargetFrameworks>net48;net6.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Verify" Version="24.2.0" />
-    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="25.2.5" />
-    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="25.2.5" />
-    <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="25.2.5" />
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="25.2.5" />
-    <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="25.2.5" />
-    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="25.2.5" />
-    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="25.2.5" />
-    <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="25.2.5" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.127" PrivateAssets="all" />
+    <PackageReference Include="Verify" />
+    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" />
+    <PackageReference Include="Syncfusion.Pdf.Net.Core" />
+    <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" />
+    <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" />
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" />
+    <PackageReference Include="Syncfusion.Presentation.Net.Core" />
+    <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
   </ItemGroup>
 </Project>
