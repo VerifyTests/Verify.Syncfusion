@@ -6,7 +6,7 @@
 
 Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of documents via [Syncfusion File Formats](https://help.syncfusion.com/file-formats/introduction/).
 
-Converts documents (pdf, docx, xslx, and pptx) to png/csv/text for verification.
+Converts documents (pdf, docx, xlsx, and pptx) to png/csv/text for verification.
 
 **See [Milestones](../../milestones?state=closed) for release notes.**
 
