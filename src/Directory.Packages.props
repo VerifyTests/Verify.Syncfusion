@@ -19,6 +19,6 @@
     <PackageVersion Include="Syncfusion.XlsIORenderer.Net.Core" Version="26.1.38" />
     <PackageVersion Include="Verify" Version="25.0.4" />
     <PackageVersion Include="Verify.DiffPlex" Version="3.0.0" />
-    <PackageVersion Include="Verify.NUnit" Version="25.0.3" />
+    <PackageVersion Include="Verify.NUnit" Version="25.0.4" />
   </ItemGroup>
 </Project>
