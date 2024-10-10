@@ -13,5 +13,6 @@
     <PackageReference Include="Syncfusion.DocIO.Net.Core" />
     <PackageReference Include="Syncfusion.Presentation.Net.Core" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
+    <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 </Project>
