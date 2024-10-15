@@ -17,9 +17,9 @@
     <PackageVersion Include="Syncfusion.PresentationRenderer.Net.Core" Version="27.1.52" />
     <PackageVersion Include="Syncfusion.XlsIO.Net.Core" Version="27.1.52" />
     <PackageVersion Include="Syncfusion.XlsIORenderer.Net.Core" Version="27.1.52" />
-    <PackageVersion Include="Verify" Version="27.0.0-beta.6" />
+    <PackageVersion Include="Verify" Version="27.0.1" />
     <PackageVersion Include="Verify.DiffPlex" Version="3.1.0" />
-    <PackageVersion Include="Verify.NUnit" Version="27.0.0-beta.6" />
+    <PackageVersion Include="Verify.NUnit" Version="27.0.1" />
     <!-- CVE -->
     <PackageVersion Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
