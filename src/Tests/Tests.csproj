@@ -7,7 +7,14 @@
     <PackageReference Include="NUnit" />
     <PackageReference Include="NUnit3TestAdapter" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" />
     <PackageReference Include="Syncfusion.Pdf.Net.Core" />
+    <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" />
+    <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" />
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" />
+    <PackageReference Include="Syncfusion.Presentation.Net.Core" />
     <PackageReference Include="Verify.DiffPlex" />
     <PackageReference Include="Verify.NUnit" />
     <ProjectReference Include="..\Verify.Syncfusion\Verify.Syncfusion.csproj" />
