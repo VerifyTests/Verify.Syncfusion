@@ -9,10 +9,10 @@
     <PackageVersion Include="NUnit" Version="4.3.2" />
     <PackageVersion Include="NUnit3TestAdapter" Version="5.0.0" />
     <PackageVersion Include="ProjectDefaults" Version="1.0.150" />
-    <PackageVersion Include="Syncfusion.DocIO.Net.Core" Version="29.1.33" />
-    <PackageVersion Include="Syncfusion.DocIORenderer.Net.Core" Version="29.1.33" />
+    <PackageVersion Include="Syncfusion.DocIO.Net.Core" Version="29.1.35" />
+    <PackageVersion Include="Syncfusion.DocIORenderer.Net.Core" Version="29.1.35" />
     <PackageVersion Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="28.1.37" />
-    <PackageVersion Include="Syncfusion.Pdf.Net.Core" Version="29.1.33" />
+    <PackageVersion Include="Syncfusion.Pdf.Net.Core" Version="29.1.35" />
     <PackageVersion Include="Syncfusion.Presentation.Net.Core" Version="29.1.33" />
     <PackageVersion Include="Syncfusion.PresentationRenderer.Net.Core" Version="29.1.33" />
     <PackageVersion Include="Syncfusion.XlsIO.Net.Core" Version="29.1.33" />
