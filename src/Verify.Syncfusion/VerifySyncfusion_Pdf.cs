@@ -2,23 +2,23 @@
 
 public static partial class VerifySyncfusion
 {
-    static ConversionResult ConvertPdf(Stream stream, IReadOnlyDictionary<string, object> settings)
+    static ConversionResult ConvertPdf(string? name, Stream stream, IReadOnlyDictionary<string, object> settings)
     {
         using var document = new PdfLoadedDocument(stream);
 
-        return ConvertPdf(document, settings);
+        return ConvertPdf(name, document, settings);
     }
 
-    static ConversionResult ConvertPdf(PdfDocument document, IReadOnlyDictionary<string, object> settings)
+    static ConversionResult ConvertPdf(string? name, PdfDocument document, IReadOnlyDictionary<string, object> settings)
     {
         var info = GetInfo(document, document.DocumentInformation);
-        return new(info, GetPdfStreams(document, settings).ToList());
+        return new(info, GetPdfStreams(name, document, settings).ToList());
     }
 
-    static ConversionResult ConvertPdf(PdfLoadedDocument document, IReadOnlyDictionary<string, object> settings)
+    static ConversionResult ConvertPdf(string? name, PdfLoadedDocument document, IReadOnlyDictionary<string, object> settings)
     {
         var info = GetInfo(document, document.DocumentInformation);
-        return new(info, GetPdfStreams(document, settings).ToList());
+        return new(info, GetPdfStreams(name, document, settings).ToList());
     }
 
     static object GetInfo(PdfDocumentBase document, PdfDocumentInformation info)
@@ -46,19 +46,20 @@ public static partial class VerifySyncfusion
         };
     }
 
-    static IEnumerable<Target> GetPdfStreams(PdfDocument document, IReadOnlyDictionary<string, object> settings)
+    static IEnumerable<Target> GetPdfStreams(string? name, PdfDocument document, IReadOnlyDictionary<string, object> settings)
     {
         var pages = document.Pages.Cast<PdfPageBase>().ToList();
-        return GetPdfStreams(document, settings, pages);
+        return GetPdfStreams(name, document, settings, pages);
     }
 
-    static IEnumerable<Target> GetPdfStreams(PdfLoadedDocument document, IReadOnlyDictionary<string, object> settings)
+    static IEnumerable<Target> GetPdfStreams(string? name, PdfLoadedDocument document, IReadOnlyDictionary<string, object> settings)
     {
         var pages = document.Pages.Cast<PdfPageBase>().ToList();
-        return GetPdfStreams(document, settings, pages);
+        return GetPdfStreams(name, document, settings, pages);
     }
 
     static IEnumerable<Target> GetPdfStreams(
+        string? name,
         PdfDocumentBase document,
         IReadOnlyDictionary<string, object> settings,
         List<PdfPageBase> pages)
@@ -73,13 +74,13 @@ public static partial class VerifySyncfusion
         {
             var page = pages[index];
             var text = page.ExtractText();
-            yield return new("txt", text);
+            yield return new("txt", text, name);
             //TODO: also export page text
             var pngStream = new MemoryStream();
             var image = pngDevice.ExportAsImage(index);
             var skData = image.Encode(SKEncodedImageFormat.Png,100);
             skData.SaveTo(pngStream);
-            yield return new("png", pngStream);
+            yield return new("png", pngStream, name);
         }
     }
 }

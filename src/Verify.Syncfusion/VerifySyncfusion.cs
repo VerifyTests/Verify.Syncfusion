@@ -17,20 +17,20 @@ public static partial class VerifySyncfusion
 
         Initialized = true;
 
-        VerifierSettings.RegisterFileConverter("xlsx", ConvertExcel);
-        VerifierSettings.RegisterFileConverter("xls", ConvertExcel);
-        VerifierSettings.RegisterFileConverter<IWorkbook>(ConvertExcel);
+        VerifierSettings.RegisterStreamConverter("xlsx", ConvertExcel);
+        VerifierSettings.RegisterStreamConverter("xls", ConvertExcel);
+        VerifierSettings.RegisterFileConverter<IWorkbook>((target, _) => ConvertExcel(null, target));
 
-        VerifierSettings.RegisterFileConverter("pdf", ConvertPdf);
-        VerifierSettings.RegisterFileConverter<PdfDocument>(ConvertPdf);
-        VerifierSettings.RegisterFileConverter<PdfLoadedDocument>(ConvertPdf);
+        VerifierSettings.RegisterStreamConverter("pdf", ConvertPdf);
+        VerifierSettings.RegisterFileConverter<PdfDocument>((target, context) => ConvertPdf(null, target, context));
+        VerifierSettings.RegisterFileConverter<PdfLoadedDocument>((target, context) => ConvertPdf(null, target, context));
 
-        VerifierSettings.RegisterFileConverter("pptx", ConvertPowerPoint);
-        VerifierSettings.RegisterFileConverter("ppt", ConvertPowerPoint);
-        VerifierSettings.RegisterFileConverter<IPresentation>(ConvertPowerPoint);
+        VerifierSettings.RegisterStreamConverter("pptx", ConvertPowerPoint);
+        VerifierSettings.RegisterStreamConverter("ppt", ConvertPowerPoint);
+        VerifierSettings.RegisterFileConverter<IPresentation>((target, context) => ConvertPowerPoint(null, target, context));
 
-        VerifierSettings.RegisterFileConverter("docx", ConvertDocx);
-        VerifierSettings.RegisterFileConverter("doc", ConvertDoc);
-        VerifierSettings.RegisterFileConverter<WordDocument>(ConvertWord);
+        VerifierSettings.RegisterStreamConverter("docx", ConvertDocx);
+        VerifierSettings.RegisterStreamConverter("doc", ConvertDoc);
+        VerifierSettings.RegisterFileConverter<WordDocument>((target, _) => ConvertWord(null, target));
     }
 }
