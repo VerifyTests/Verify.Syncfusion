@@ -5,7 +5,7 @@ namespace VerifyTests;
 
 public static partial class VerifySyncfusion
 {
-    static ConversionResult ConvertExcel(Stream stream, IReadOnlyDictionary<string, object> settings)
+    static ConversionResult ConvertExcel(string? name, Stream stream, IReadOnlyDictionary<string, object> settings)
     {
         var engine = new ExcelEngine
         {
@@ -15,13 +15,13 @@ public static partial class VerifySyncfusion
             }
         };
         var workbook = engine.Excel.Workbooks.Open(stream);
-        return ConvertExcel(workbook, settings);
+        return ConvertExcel(name, workbook);
     }
 
-    static ConversionResult ConvertExcel(IWorkbook book, IReadOnlyDictionary<string, object> settings)
+    static ConversionResult ConvertExcel(string? name, IWorkbook book)
     {
         var info = GetInfo(book);
-        return new(info, GetExcelStreams(book).ToList());
+        return new(info, GetExcelStreams(name, book).ToList());
     }
 
     static object GetInfo(IWorkbook book) =>
@@ -46,14 +46,14 @@ public static partial class VerifySyncfusion
             book.StandardFontSize,
         };
 
-    static IEnumerable<Target> GetExcelStreams(IWorkbook book)
+    static IEnumerable<Target> GetExcelStreams(string? name, IWorkbook book)
     {
         foreach (var sheet in book.Worksheets)
         {
             using var stream = new MemoryStream();
             sheet.SaveAs(stream, ", ", Encoding.UTF8);
             var stringData = ReadNonEmptyLines(stream);
-            yield return new("csv", stringData);
+            yield return new("csv", stringData, name);
         }
     }
 

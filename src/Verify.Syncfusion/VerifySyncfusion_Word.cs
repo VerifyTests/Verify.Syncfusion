@@ -6,22 +6,22 @@ namespace VerifyTests;
 
 public static partial class VerifySyncfusion
 {
-    static ConversionResult ConvertDocx(Stream stream, IReadOnlyDictionary<string, object> settings) =>
-        Convert(stream, settings, FormatType.Docx);
+    static ConversionResult ConvertDocx(string? name, Stream stream, IReadOnlyDictionary<string, object> settings) =>
+        Convert(name, stream, FormatType.Docx);
 
-    static ConversionResult ConvertDoc(Stream stream, IReadOnlyDictionary<string, object> settings) =>
-        Convert(stream, settings, FormatType.Doc);
+    static ConversionResult ConvertDoc(string? name, Stream stream, IReadOnlyDictionary<string, object> settings) =>
+        Convert(name, stream, FormatType.Doc);
 
-    static ConversionResult Convert(Stream stream, IReadOnlyDictionary<string, object> settings, FormatType formatType)
+    static ConversionResult Convert(string? name, Stream stream, FormatType formatType)
     {
         var document = new WordDocument(stream, formatType);
         document.UpdateWordCount();
         document.UpdateDocumentFields();
-        return ConvertWord(document, settings);
+        return ConvertWord(name, document);
     }
 
-    static ConversionResult ConvertWord(WordDocument document, IReadOnlyDictionary<string, object> settings) =>
-        new(GetInfo(document), GetWordStreams(document).ToList());
+    static ConversionResult ConvertWord(string? name, WordDocument document) =>
+        new(GetInfo(document), GetWordStreams(name, document).ToList());
 
     static object GetInfo(IWordDocument document)
     {
@@ -45,7 +45,7 @@ public static partial class VerifySyncfusion
         };
     }
 
-    static IEnumerable<Target> GetWordStreams(WordDocument document)
+    static IEnumerable<Target> GetWordStreams(string? name, WordDocument document)
     {
         using var stream = new MemoryStream();
         document.SaveTxt(stream, Encoding.UTF8);
@@ -56,7 +56,7 @@ public static partial class VerifySyncfusion
 
         foreach (var image in images)
         {
-            yield return new("png", image);
+            yield return new("png", image, name);
         }
     }
 }
