@@ -1,4 +1,4 @@
-# <img src="/src/icon.png" height="30px"> Verify.Syncfusion
+# <img src="https://raw.githubusercontent.com/SimonCropp/Verify.Syncfusion/main/src/icon.png" height="30px"> Verify.Syncfusion
 
 [![Discussions](https://img.shields.io/badge/Verify-Discussions-yellow?svg=true&label=)](https://github.com/orgs/VerifyTests/discussions)
 [![Build status](https://ci.appveyor.com/api/projects/status/hkr80o3jgok632nw?svg=true)](https://ci.appveyor.com/project/SimonCropp/Verify-Syncfusion)
@@ -84,9 +84,9 @@ public Task VerifyPdfStream()
 <sup><a href='/src/Tests/Samples.VerifyPdf#00.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf#00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-[Samples.VerifyPdf.01.verified.png](/src/Tests/Samples.VerifyPdf.01.verified.png):
+[Samples.VerifyPdf#01.verified.png](src/Tests/Samples.VerifyPdf%2301.verified.png):
 
-<img src="https://raw.githubusercontent.com/SimonCropp/Verify.Syncfusion/main/src/Tests/Samples.VerifyPdf.01.verified.png" width="200px">
+<img src="https://raw.githubusercontent.com/SimonCropp/Verify.Syncfusion/main/src/Tests/Samples.VerifyPdf%2301.verified.png" width="200px">
 
 
 ### Excel
@@ -240,11 +240,11 @@ Created with a trial version of Syncfusion Word library or registered the wrong 
 <!-- endSnippet -->
 
 
-[Samples.VerifyWord#00.verified.png](/src/Tests/Samples.VerifyWord#00.verified.png):
-<img src="/src/Tests/Samples.VerifyWord%2300.verified.png" width="200px">
+[Samples.VerifyWord#00.verified.png](src/Tests/Samples.VerifyWord%2300.verified.png):
+<img src="https://raw.githubusercontent.com/SimonCropp/Verify.Syncfusion/main/src/Tests/Samples.VerifyWord%2300.verified.png" width="200px">
 
-[Samples.VerifyWord#01.verified.png](/src/Tests/Samples.VerifyWord#01.verified.png):
-<img src="/src/Tests/Samples.VerifyWord%2301.verified.png" width="200px">
+[Samples.VerifyWord#01.verified.png](src/Tests/Samples.VerifyWord%2301.verified.png):
+<img src="https://raw.githubusercontent.com/SimonCropp/Verify.Syncfusion/main/src/Tests/Samples.VerifyWord%2301.verified.png" width="200px">
 
 ### PowerPoint
 
@@ -308,9 +308,9 @@ public Task VerifyPowerPointStream()
 <sup><a href='/src/Tests/Samples.VerifyPowerPoint.verified.txt#L1-L21' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPowerPoint.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-[Samples.VerifyPowerPoint.01.verified.png](/src/Tests/Samples.VerifyPowerPoint.01.verified.png):
+[Samples.VerifyPowerPoint#01.verified.png](src/Tests/Samples.VerifyPowerPoint%2301.verified.png):
 
-<img src="https://raw.githubusercontent.com/SimonCropp/Verify.Syncfusion/main/src/Tests/Samples.VerifyPowerPoint.01.verified.png" width="200px">
+<img src="https://raw.githubusercontent.com/SimonCropp/Verify.Syncfusion/main/src/Tests/Samples.VerifyPowerPoint%2301.verified.png" width="200px">
 
 
 ## File Samples
