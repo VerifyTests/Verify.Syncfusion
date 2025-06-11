@@ -13,6 +13,11 @@ Converts documents (pdf, docx, xlsx, and pptx) to png/csv/text for verification.
 An [Syncfusion License](https://www.syncfusion.com/sales/licensing) is required to use this tool.
 
 
+## Sponsors
+
+include: zzz
+
+
 ## NuGet
 
  * https://nuget.org/packages/Verify.Syncfusion
