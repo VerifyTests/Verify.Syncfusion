@@ -4,9 +4,9 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/hkr80o3jgok632nw?svg=true)](https://ci.appveyor.com/project/SimonCropp/Verify-Syncfusion)
 [![NuGet Status](https://img.shields.io/nuget/v/Verify.Syncfusion.svg)](https://www.nuget.org/packages/Verify.Syncfusion/)
 
-Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of documents via [Syncfusion File Formats](https://help.syncfusion.com/file-formats/introduction/).
+Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of documents via [Syncfusion File Formats](https://help.syncfusion.com/file-formats/introduction/).<!-- include: intro. path: /docs/intro.include.md -->
 
-Converts documents (pdf, docx, xlsx, and pptx) to png/csv/text for verification.
+Converts documents (pdf, docx, xlsx, and pptx) to png/csv/text for verification.<!-- endInclude -->
 
 **See [Milestones](../../milestones?state=closed) for release notes.**
 
@@ -18,9 +18,9 @@ An [Syncfusion License](https://www.syncfusion.com/sales/licensing) is required 
 
 ### Entity Framework Extensions<!-- include: zzz. path: /docs/zzz.include.md -->
 
-[Entity Framework Extensions](https://entityframework-extensions.net/) is a major sponsor and is proud to contribute to the development this project.
+[Entity Framework Extensions](https://entityframework-extensions.net/?utm_source=simoncropp&utm_medium=Verify.Syncfusion) is a major sponsor and is proud to contribute to the development this project.
 
-[![Entity Framework Extensions](docs/zzz.png)](https://entityframework-extensions.net)<!-- endInclude -->
+[![Entity Framework Extensions](https://raw.githubusercontent.com/VerifyTests/Verify.Syncfusion/refs/heads/main/docs/zzz.png)](https://entityframework-extensions.net/?utm_source=simoncropp&utm_medium=Verify.Syncfusion)<!-- endInclude -->
 
 
 ## NuGet
