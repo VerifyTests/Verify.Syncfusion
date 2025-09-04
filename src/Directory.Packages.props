@@ -17,7 +17,7 @@
     <PackageVersion Include="Syncfusion.PresentationRenderer.Net.Core" Version="30.2.7" />
     <PackageVersion Include="Syncfusion.XlsIO.Net.Core" Version="30.2.7" />
     <PackageVersion Include="Syncfusion.XlsIORenderer.Net.Core" Version="30.2.7" />
-    <PackageVersion Include="Verify" Version="30.8.0" />
+    <PackageVersion Include="Verify" Version="30.10.0" />
     <PackageVersion Include="Verify.DiffPlex" Version="3.1.2" />
     <PackageVersion Include="Verify.NUnit" Version="30.8.0" />
     <PackageVersion Include="Microsoft.Sbom.Targets" Version="4.1.1" />
