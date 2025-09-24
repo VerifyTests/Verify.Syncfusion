@@ -1,11 +1,12 @@
-﻿using Syncfusion.XlsIO;
+﻿using DeterministicIoPackaging;
+using Syncfusion.XlsIO;
 using Syncfusion.XlsIORenderer;
 
 namespace VerifyTests;
 
 public static partial class VerifySyncfusion
 {
-    static ConversionResult ConvertExcel(string? name, Stream stream, IReadOnlyDictionary<string, object> settings)
+    static ConversionResult ConvertExcel(string? targetName, Stream stream, IReadOnlyDictionary<string, object> settings)
     {
         var engine = new ExcelEngine
         {
@@ -15,13 +16,13 @@ public static partial class VerifySyncfusion
             }
         };
         var workbook = engine.Excel.Workbooks.Open(stream);
-        return ConvertExcel(name, workbook);
+        return ConvertExcel(targetName, workbook);
     }
 
-    static ConversionResult ConvertExcel(string? name, IWorkbook book)
+    static ConversionResult ConvertExcel(string? targetName, IWorkbook book)
     {
         var info = GetInfo(book);
-        return new(info, GetExcelStreams(name, book).ToList());
+        return new(info, GetExcelStreams(targetName, book).ToList());
     }
 
     static object GetInfo(IWorkbook book) =>
@@ -46,15 +47,36 @@ public static partial class VerifySyncfusion
             book.StandardFontSize,
         };
 
-    static IEnumerable<Target> GetExcelStreams(string? name, IWorkbook book)
+    static List<Target> GetExcelStreams(string? targetName, IWorkbook book)
     {
+        using var sourceStream = new MemoryStream();
+        book.SaveAs(sourceStream, ExcelSaveType.SaveAsXLS);
+        var resultStream = DeterministicPackage.Convert(sourceStream);
+
+        List<Target> targets = [new("xlsx", resultStream, performConversion: false)];
         foreach (var sheet in book.Worksheets)
         {
-            using var stream = new MemoryStream();
-            sheet.SaveAs(stream, ", ", Encoding.UTF8);
-            var stringData = ReadNonEmptyLines(stream);
-            yield return new("csv", stringData, name);
+            targets.Add(GetSheetStreams(targetName, sheet));
         }
+
+        return targets;
+    }
+
+    static Target GetSheetStreams(string? targetName, IWorksheet sheet)
+    {
+        string targetAndSheet;
+        if (targetName == null)
+        {
+            targetAndSheet = sheet.Name;
+        }
+        else
+        {
+            targetAndSheet = $"{targetName}-{sheet.Name}";
+        }
+        using var stream = new MemoryStream();
+        sheet.SaveAs(stream, ", ", Encoding.UTF8);
+        var stringData = ReadNonEmptyLines(stream);
+        return new("csv", stringData, targetAndSheet);
     }
 
     static string ReadNonEmptyLines(MemoryStream stream)

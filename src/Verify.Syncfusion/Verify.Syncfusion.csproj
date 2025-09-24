@@ -3,6 +3,7 @@
     <TargetFrameworks>net48;net8.0;net9.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="DeterministicIoPackaging" />
     <PackageReference Include="Verify" />
     <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" />
     <PackageReference Include="Syncfusion.Pdf.Net.Core" />
