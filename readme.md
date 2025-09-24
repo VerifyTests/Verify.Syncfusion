@@ -157,8 +157,8 @@ public Task VerifyExcelStream()
 <sup><a href='/src/Tests/Samples.VerifyExcel.verified.txt#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-<!-- snippet: Samples.VerifyExcel.verified.csv -->
-<a id='snippet-Samples.VerifyExcel.verified.csv'></a>
+<!-- snippet: Samples.VerifyExcel#Sheet1.verified.csv -->
+<a id='snippet-Samples.VerifyExcel#Sheet1.verified.csv'></a>
 ```csv
 0, First Name, Last Name, Gender, Country, Age, Date, Id
 1, Dulce, Abril, Female, United States, 32, 15/10/2017, 1562
@@ -168,7 +168,7 @@ public Task VerifyExcelStream()
 5, Nereida, Magwood, Female, United States, 58, 16/08/2016, 2468
 6, Gaston, Brumm, Male, United States, 24, 21/05/2015, 2554
 ```
-<sup><a href='/src/Tests/Samples.VerifyExcel.verified.csv#L1-L7' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.verified.csv' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyExcel#Sheet1.verified.csv#L1-L7' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel#Sheet1.verified.csv' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
