@@ -8,20 +8,3 @@
  And more text. And more text. 
  And more text. And more text. And more text. And more text. And more 
  text. And more text. And more text. Even more. Continued on page 2 ...
-Created with a trial version of Syncfusion PDF library or
-registered the wrong key in your application. Click
-
-here
-
-to
-
-obtain
-
-the
-
-valid
-
-key.
-
-Created with a trial version of Syncfusion PDF library.
-

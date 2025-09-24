@@ -160,7 +160,6 @@ public Task VerifyExcelStream()
 <!-- snippet: Samples.VerifyExcel.verified.csv -->
 <a id='snippet-Samples.VerifyExcel.verified.csv'></a>
 ```csv
-Created with a trial version of Syncfusion Excel library or registered the wrong key in your application. Go to www.syncfusion.com/account/claim-license-key to obtain the valid key.
 0, First Name, Last Name, Gender, Country, Age, Date, Id
 1, Dulce, Abril, Female, United States, 32, 15/10/2017, 1562
 2, Mara, Hashimoto, Female, Great Britain, 25, 16/08/2016, 1582
@@ -168,9 +167,8 @@ Created with a trial version of Syncfusion Excel library or registered the wrong
 4, Kathleen, Hanner, Female, United States, 25, 15/10/2017, 3549
 5, Nereida, Magwood, Female, United States, 58, 16/08/2016, 2468
 6, Gaston, Brumm, Male, United States, 24, 21/05/2015, 2554
-Created with a trial version of Syncfusion Excel library or registered the wrong key in your application. Go to www.syncfusion.com/account/claim-license-key to obtain the valid key.
 ```
-<sup><a href='/src/Tests/Samples.VerifyExcel.verified.csv#L1-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.verified.csv' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyExcel.verified.csv#L1-L7' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.verified.csv' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

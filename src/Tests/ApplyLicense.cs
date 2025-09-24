@@ -1,6 +1,4 @@
-﻿using Syncfusion.Licensing;
-
-public static class ApplyLicense
+﻿public static class ApplyLicense
 {
     [ModuleInitializer]
     public static void Initialize()

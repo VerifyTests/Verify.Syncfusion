@@ -9,6 +9,20 @@
     #endregion
 
     [ModuleInitializer]
-    public static void InitializeOther() =>
+    public static void InitializeOther()
+    {
+        ApplySyncfusionLicense();
         VerifierSettings.InitializePlugins();
+    }
+
+    static void ApplySyncfusionLicense()
+    {
+        var license = Environment.GetEnvironmentVariable("SyncfusionLicense");
+        if (license == null)
+        {
+            throw new("Expected a `SyncfusionLicense` environment variable");
+        }
+
+        SyncfusionLicenseProvider.RegisterLicense(license);
+    }
 }
