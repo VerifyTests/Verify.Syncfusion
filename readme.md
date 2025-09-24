@@ -228,7 +228,6 @@ public Task VerifyWordStream()
 <!-- snippet: Samples.VerifyWord#01.verified.txt -->
 <a id='snippet-Samples.VerifyWord#01.verified.txt'></a>
 ```txt
-Created with a trial version of Syncfusion Word library or registered the wrong key in your application. Go to "www.syncfusion.com/account/claim-license-key" to obtain the valid key.
 Lorem ipsum 
 
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac faucibus odio. 
@@ -241,10 +240,8 @@ Maecenas mauris lectus, lobortis et purus mattis, blandit dictum tellus.
 * Mauris id ex erat. Nunc vulputate neque vitae justo facilisis, non condimentum ante sagittis. 
 * Morbi viverra semper lorem nec molestie. 
 * Maecenas tincidunt est efficitur ligula euismod, sit amet ornare est vulputate.
-
-Created with a trial version of Syncfusion Word library or registered the wrong key in your application. Go to "www.syncfusion.com/account/claim-license-key" to obtain the valid key.
 ```
-<sup><a href='/src/Tests/Samples.VerifyWord#01.verified.txt#L1-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#01.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyWord#01.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#01.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
