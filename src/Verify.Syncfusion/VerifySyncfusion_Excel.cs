@@ -50,6 +50,11 @@ public static partial class VerifySyncfusion
     static List<Target> GetExcelStreams(string? targetName, IWorkbook book)
     {
         using var sourceStream = new MemoryStream();
+        if (book.Version == ExcelVersion.Excel97to2003)
+        {
+            throw new("Excel97to2003 not supported");
+        }
+
         book.SaveAs(sourceStream, ExcelSaveType.SaveAsXLS);
         var resultStream = DeterministicPackage.Convert(sourceStream);
 
