@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using DeterministicIoPackaging;
+﻿using DeterministicIoPackaging;
 using Syncfusion.XlsIO;
 using Syncfusion.XlsIORenderer;
 
@@ -48,59 +47,8 @@ public static partial class VerifySyncfusion
             book.StandardFontSize,
         };
 
-    static (string value, bool replaceCellValue) GetCellValue(IRange cell, Counter counter)
-    {
-        if (!cell.HasValue())
-        {
-            return (string.Empty, false);
-        }
-
-        switch (cell.Type)
-        {
-            case CellValueType.IsNumeric:
-                var value = cell.DoubleValue;
-                if (cell.GetStyle().Custom.Contains('%'))
-                {
-                    // Percentage
-                    return (value.ToString("P", CultureInfo.InvariantCulture), false);
-                }
-
-                return (value.ToString(CultureInfo.InvariantCulture), false);
-
-            case CellValueType.IsBool:
-                return (cell.BoolValue.ToString(), false);
-
-            case CellValueType.IsDateTime:
-                var date = cell.DateTimeValue;
-                if (counter.TryConvert(date, out var dateResult))
-                {
-                    return (dateResult, true);
-                }
-
-                return (DateFormatter.Convert(date), false);
-
-            case CellValueType.IsError:
-                return (cell.Value.ToString()!, false);
-
-            case CellValueType.IsNull:
-                return ("", false);
-
-            default:
-                var text = cell.StringValue;
-                if (counter.TryConvert(text, out var result))
-                {
-                    return (result, true);
-                }
-
-                return (text, false);
-        }
-    }
     static List<Target> GetExcelStreams(string? targetName, IWorkbook book)
     {
-        foreach (var sheet in book.Worksheets)
-        {
-            ScrubCells(sheet);
-        }
         using var sourceStream = new MemoryStream();
         book.SaveAs(sourceStream, ExcelSaveType.SaveAsXLS);
         var resultStream = DeterministicPackage.Convert(sourceStream);
@@ -112,34 +60,6 @@ public static partial class VerifySyncfusion
         }
 
         return targets;
-    }
-
-    private static void ScrubCells(IWorksheet sheet)
-    {
-        var counter = Counter.Current;
-        IRange usedRange = sheet.UsedRange;
-
-        for (int row = 1; row <= usedRange.LastRow; row++)
-        {
-            for (int col = 1; col <= usedRange.LastColumn; col++)
-            {
-                IRange cell = sheet[row, col];
-
-                var (value, replaceCellValue) = GetCellValue(cell, counter);
-                if (replaceCellValue)
-                {
-                    cell.Value = value;
-                }
-            }
-        }
-
-        foreach (var range in sheet.Cells)
-        {
-            foreach (var cell in range.Cells)
-            {
-
-            }
-        }
     }
 
     static Target GetSheetStreams(string? targetName, IWorksheet sheet)
