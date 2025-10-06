@@ -13,19 +13,7 @@ public static class ModuleInitializer
     [ModuleInitializer]
     public static void InitializeOther()
     {
-        ApplySyncfusionLicense();
         VerifyDiffPlex.Initialize(OutputType.Compact);
         VerifierSettings.InitializePlugins();
-    }
-
-    static void ApplySyncfusionLicense()
-    {
-        var license = Environment.GetEnvironmentVariable("SyncfusionLicense");
-        if (license == null)
-        {
-            throw new("Expected a `SyncfusionLicense` environment variable");
-        }
-
-        SyncfusionLicenseProvider.RegisterLicense(license);
     }
 }

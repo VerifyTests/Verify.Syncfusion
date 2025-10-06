@@ -3,10 +3,12 @@
     [ModuleInitializer]
     public static void Initialize()
     {
-        var key = Environment.GetEnvironmentVariable("SyncfusionLicense");
-        if (key != null)
+        var license = Environment.GetEnvironmentVariable("SyncfusionLicense");
+        if (license == null)
         {
-            SyncfusionLicenseProvider.RegisterLicense(key);
+            throw new("Expected a `SyncfusionLicense` environment variable");
         }
+
+        SyncfusionLicenseProvider.RegisterLicense(license);
     }
 }
