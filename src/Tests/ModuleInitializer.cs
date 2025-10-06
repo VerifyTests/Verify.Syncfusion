@@ -12,6 +12,7 @@
     public static void InitializeOther()
     {
         ApplySyncfusionLicense();
+        VerifyDiffPlex.Initialize(OutputType.Compact);
         VerifierSettings.InitializePlugins();
     }
 
