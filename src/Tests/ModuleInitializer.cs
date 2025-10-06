@@ -1,4 +1,6 @@
-﻿public static class ModuleInitializer
+﻿using VerifyTests.DiffPlex;
+
+public static class ModuleInitializer
 {
     #region enable
 
