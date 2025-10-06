@@ -7,6 +7,7 @@
     <PackageReference Include="Verify" />
     <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" />
     <PackageReference Include="Syncfusion.Pdf.Net.Core" />
+    <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" />
     <PackageReference Include="Syncfusion.XlsIO.Net.Core" />
     <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" />
     <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" />
