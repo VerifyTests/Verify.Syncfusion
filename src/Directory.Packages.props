@@ -23,7 +23,7 @@
     <PackageVersion Include="Verify.NUnit" Version="31.5.3" />
     <PackageVersion Include="Microsoft.Sbom.Targets" Version="4.1.3" />
     <!-- CVE -->
-    <PackageVersion Include="System.Text.Json" Version="9.0.10" />
+    <PackageVersion Include="System.Text.Json" Version="10.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="9.0.10" />
   </ItemGroup>
 </Project>
