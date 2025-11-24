@@ -9,7 +9,7 @@
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
     <PackageVersion Include="NUnit" Version="4.4.0" />
     <PackageVersion Include="NUnit3TestAdapter" Version="5.2.0" />
-    <PackageVersion Include="ProjectDefaults" Version="1.0.162" />
+    <PackageVersion Include="ProjectDefaults" Version="1.0.163" />
     <PackageVersion Include="Syncfusion.DocIO.Net.Core" Version="31.2.12" />
     <PackageVersion Include="Syncfusion.DocIORenderer.Net.Core" Version="31.2.12" />
     <PackageVersion Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="28.1.37" />
