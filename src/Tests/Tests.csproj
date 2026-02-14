@@ -17,6 +17,11 @@
     <PackageReference Include="Syncfusion.Presentation.Net.Core" />
     <PackageReference Include="Verify.DiffPlex" />
     <PackageReference Include="Verify.NUnit" />
+    <PackageReference Include="Argon" />
+    <PackageReference Include="DiffEngine" />
+    <PackageReference Include="EmptyFiles" />
+    <PackageReference Include="SimpleInfoName" />
+    <PackageReference Include="Verify" />
     <ProjectReference Include="..\Verify.Syncfusion\Verify.Syncfusion.csproj" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
     <None Update="sample.*">
