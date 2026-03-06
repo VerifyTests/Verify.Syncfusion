@@ -91,7 +91,7 @@ public Task VerifyPdfStream()
   Title: 
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyPdf#00.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf#00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPdf%2300.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf#00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [Samples.VerifyPdf#01.verified.png](src/Tests/Samples.VerifyPdf%2301.verified.png):
@@ -207,7 +207,7 @@ public Task VerifyExcelStream()
 8, Earlean, Melgar, Female, United States, 27, 2456, 2464, , , , , , , , , , , , , , , , 
 9, Vincenza, Weiland, Female, United States, 40, 6548, 6557, , , , , , , , , , , , , , , ,
 ```
-<sup><a href='/src/Tests/Samples.VerifyExcel#Sheet1.verified.csv#L1-L46' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel#Sheet1.verified.csv' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyExcel%23Sheet1.verified.csv#L1-L46' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel#Sheet1.verified.csv' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -261,7 +261,7 @@ public Task VerifyWordStream()
   RevisionNumber: 3
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyWord#00.verified.txt#L1-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyWord%2300.verified.txt#L1-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 <!-- snippet: Samples.VerifyWord#01.verified.txt -->
@@ -280,7 +280,7 @@ Maecenas mauris lectus, lobortis et purus mattis, blandit dictum tellus.
 * Morbi viverra semper lorem nec molestie. 
 * Maecenas tincidunt est efficitur ligula euismod, sit amet ornare est vulputate.
 ```
-<sup><a href='/src/Tests/Samples.VerifyWord#01.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#01.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyWord%2301.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#01.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
