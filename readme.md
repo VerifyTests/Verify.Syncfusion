@@ -361,6 +361,18 @@ public Task VerifyPowerPointStream()
 <img src="https://raw.githubusercontent.com/SimonCropp/Verify.Syncfusion/main/src/Tests/Samples.VerifyPowerPoint%2301.verified.png" width="200px">
 
 
+### Binary output across .NET frameworks
+
+When verifying binary xlsx/docx output across multiple target frameworks (e.g. net48 and net10.0), the binary output may differ due to Deflate compression implementation differences. The XML content within entries is identical — only the compressed bytes differ. Use `UniqueForRuntime` to generate framework-specific verified files:
+
+```cs
+await Verify(stream, extension: "xlsx")
+    .UniqueForRuntime();
+```
+
+See [Verify Naming docs](https://github.com/VerifyTests/Verify/blob/main/docs/naming.md) for more details.
+
+
 ## File Samples
 
 http://file-examples.com/
