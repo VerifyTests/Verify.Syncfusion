@@ -8,19 +8,30 @@ environment:
 image:
   - Visual Studio 2022
   - Ubuntu
-build_script:
-- pwsh: |
-    Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
-    ./dotnet-install.ps1 -JSonFile src/global.json -Architecture x64 -InstallDir 'C:\Program Files\dotnet'
-- sh: |
-    curl -sSL https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh
-    chmod +x dotnet-install.sh
-    ./dotnet-install.sh --jsonfile src/global.json --architecture x64 --install-dir /usr/share/dotnet
-- dotnet build src --configuration Release
-- dotnet test src --configuration Release --no-build --no-restore
+for:
+  - matrix:
+      only:
+        - image: Visual Studio 2022
+    build_script:
+      - pwsh: |
+          Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
+          ./dotnet-install.ps1 -JSonFile src/global.json -Architecture x64 -InstallDir 'C:\Program Files\dotnet'
+      - dotnet build src --configuration Release
+      - dotnet test src --configuration Release --no-build --no-restore
+    on_failure:
+      - ps: Get-ChildItem *.received.* -recurse | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+  - matrix:
+      only:
+        - image: Ubuntu
+    build_script:
+      - sh: |
+          curl -sSL https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh
+          chmod +x dotnet-install.sh
+          ./dotnet-install.sh --jsonfile src/global.json --architecture x64 --install-dir /usr/share/dotnet
+      - dotnet build src --configuration Release
+      - dotnet test src --configuration Release --no-build --no-restore
+    on_failure:
+      - sh: find . -name '*.received.*' -exec appveyor PushArtifact '{}' \;
 test: off
-on_failure:
-  - ps: Get-ChildItem *.received.* -recurse | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
-  - sh: find . -name '*.received.*' -exec appveyor PushArtifact '{}' \;
 artifacts:
-- path: nugets\*.nupkg
+  - path: nugets\*.nupkg
