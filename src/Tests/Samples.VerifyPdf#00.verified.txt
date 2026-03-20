@@ -1,12 +1,28 @@
-﻿{
-  PageCount: 2,
-  Author: ,
-  CreationDate: DateTime_1,
-  Creator: RAD PDF,
-  CustomMetadata: [],
-  Keywords: ,
-  ModificationDate: DateTime_2,
-  Producer: RAD PDF 3.9.0.0 - http://www.radpdf.com,
-  Subject: ,
-  Title: 
-}
+﻿[
+  {
+    PageCount: 2,
+    Author: ,
+    CreationDate: DateTime_1,
+    Creator: RAD PDF,
+    CustomMetadata: [],
+    Keywords: ,
+    ModificationDate: DateTime_2,
+    Producer: RAD PDF 3.9.0.0 - http://www.radpdf.com,
+    Subject: ,
+    Title: 
+  },
+  {
+    Width: 616,
+    Height: 426,
+    HorizontalResolution: 96.0,
+    VerticalResolution: 96.0,
+    ResolutionUnits: PixelsPerInch
+  },
+  {
+    Width: 520,
+    Height: 200,
+    HorizontalResolution: 96.0,
+    VerticalResolution: 96.0,
+    ResolutionUnits: PixelsPerInch
+  }
+]
