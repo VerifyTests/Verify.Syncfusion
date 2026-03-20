@@ -1,4 +1,3 @@
-image: Visual Studio 2022
 # https://ci.appveyor.com/tools/encrypt
 environment:
   DOTNET_NOLOGO: true
@@ -6,14 +5,22 @@ environment:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   SyncfusionLicense:
     secure: POvs0RsENyxFwe/Lt6vwOI+pSML3OtDui2rtGsu7qRCYy2eF/HIYGKQ7XvbNUz6mUHIbQ/NgjgxkiJNajglmFW7LHkfWsT9PpHcloQ1+S91WZictJJYpx2RqbxVbtOHl
+image:
+  - Visual Studio 2022
+  - Ubuntu2404
 build_script:
 - pwsh: |
     Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
     ./dotnet-install.ps1 -JSonFile src/global.json -Architecture x64 -InstallDir 'C:\Program Files\dotnet'
+- sh: |
+    curl -sSL https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh
+    chmod +x dotnet-install.sh
+    ./dotnet-install.sh --jsonfile src/global.json --architecture x64 --install-dir /usr/share/dotnet
 - dotnet build src --configuration Release
 - dotnet test src --configuration Release --no-build --no-restore
 test: off
 on_failure:
   - ps: Get-ChildItem *.received.* -recurse | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+  - sh: find . -name '*.received.*' -exec appveyor PushArtifact '{}' \;
 artifacts:
 - path: nugets\*.nupkg
