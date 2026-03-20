@@ -82,20 +82,36 @@ public Task VerifyPdfStream()
 <!-- snippet: Samples.VerifyPdf#00.verified.txt -->
 <a id='snippet-Samples.VerifyPdf#00.verified.txt'></a>
 ```txt
-{
-  PageCount: 2,
-  Author: ,
-  CreationDate: DateTime_1,
-  Creator: RAD PDF,
-  CustomMetadata: [],
-  Keywords: ,
-  ModificationDate: DateTime_2,
-  Producer: RAD PDF 3.9.0.0 - http://www.radpdf.com,
-  Subject: ,
-  Title: 
-}
+[
+  {
+    PageCount: 2,
+    Author: ,
+    CreationDate: DateTime_1,
+    Creator: RAD PDF,
+    CustomMetadata: [],
+    Keywords: ,
+    ModificationDate: DateTime_2,
+    Producer: RAD PDF 3.9.0.0 - http://www.radpdf.com,
+    Subject: ,
+    Title: 
+  },
+  {
+    Width: 616,
+    Height: 426,
+    HorizontalResolution: 96.0,
+    VerticalResolution: 96.0,
+    ResolutionUnits: PixelsPerInch
+  },
+  {
+    Width: 520,
+    Height: 200,
+    HorizontalResolution: 96.0,
+    VerticalResolution: 96.0,
+    ResolutionUnits: PixelsPerInch
+  }
+]
 ```
-<sup><a href='/src/Tests/Samples.VerifyPdf%2300.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf#00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPdf%2300.verified.txt#L1-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf#00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [Samples.VerifyPdf#01.verified.png](src/Tests/Samples.VerifyPdf%2301.verified.png):
@@ -253,19 +269,28 @@ public Task VerifyWordStream()
 <!-- snippet: Samples.VerifyWord#00.verified.txt -->
 <a id='snippet-Samples.VerifyWord#00.verified.txt'></a>
 ```txt
-{
-  LastAuthor: Simon Cropp,
-  Company: ,
-  LinesCount: 9,
-  ParagraphCount: 10,
-  WordCount: 178,
-  PageCount: 1,
-  ApplicationName: Microsoft Office Word,
-  CreateDate: DateTime_1,
-  RevisionNumber: 3
-}
+[
+  {
+    LastAuthor: Simon Cropp,
+    Company: ,
+    LinesCount: 9,
+    ParagraphCount: 10,
+    WordCount: 178,
+    PageCount: 1,
+    ApplicationName: Microsoft Office Word,
+    CreateDate: DateTime_1,
+    RevisionNumber: 3
+  },
+  {
+    Width: 793,
+    Height: 1122,
+    HorizontalResolution: 96.0,
+    VerticalResolution: 96.0,
+    ResolutionUnits: PixelsPerInch
+  }
+]
 ```
-<sup><a href='/src/Tests/Samples.VerifyWord%2300.verified.txt#L1-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyWord%2300.verified.txt#L1-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 <!-- snippet: Samples.VerifyWord#01.verified.txt -->
@@ -331,29 +356,52 @@ public Task VerifyPowerPointStream()
 <!-- snippet: Samples.VerifyPowerPoint.verified.txt -->
 <a id='snippet-Samples.VerifyPowerPoint.verified.txt'></a>
 ```txt
-{
-  Title: Lorem ipsum,
-  Subject: ,
-  Author: Simon Cropp,
-  Keywords: ,
-  Comments: ,
-  Template: ,
-  LastAuthor: Simon Cropp,
-  RevisionNumber: 1,
-  LastPrinted: DateTime_1,
-  CreationDate: DateTime_2,
-  LastSaveDate: DateTime_3,
-  WordCount: 231,
-  PresentationTarget: Custom,
-  ParagraphCount: 14,
-  SlideCount: 3,
-  NoteCount: 3,
-  ScaleCrop: false,
-  LinksDirty: false,
-  ApplicationName: Microsoft Office PowerPoint
-}
+[
+  {
+    Title: Lorem ipsum,
+    Subject: ,
+    Author: Simon Cropp,
+    Keywords: ,
+    Comments: ,
+    Template: ,
+    LastAuthor: Simon Cropp,
+    RevisionNumber: 1,
+    LastPrinted: DateTime_1,
+    CreationDate: DateTime_2,
+    LastSaveDate: DateTime_3,
+    WordCount: 231,
+    PresentationTarget: Custom,
+    ParagraphCount: 14,
+    SlideCount: 3,
+    NoteCount: 3,
+    ScaleCrop: false,
+    LinksDirty: false,
+    ApplicationName: Microsoft Office PowerPoint
+  },
+  {
+    Width: 1058,
+    Height: 794,
+    HorizontalResolution: 96.0,
+    VerticalResolution: 96.0,
+    ResolutionUnits: PixelsPerInch
+  },
+  {
+    Width: 1058,
+    Height: 794,
+    HorizontalResolution: 96.0,
+    VerticalResolution: 96.0,
+    ResolutionUnits: PixelsPerInch
+  },
+  {
+    Width: 1058,
+    Height: 794,
+    HorizontalResolution: 96.0,
+    VerticalResolution: 96.0,
+    ResolutionUnits: PixelsPerInch
+  }
+]
 ```
-<sup><a href='/src/Tests/Samples.VerifyPowerPoint.verified.txt#L1-L21' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPowerPoint.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPowerPoint.verified.txt#L1-L44' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPowerPoint.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [Samples.VerifyPowerPoint#01.verified.png](src/Tests/Samples.VerifyPowerPoint%2301.verified.png):
