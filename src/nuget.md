@@ -18,4 +18,4 @@ Converts documents (pdf, docx, xlsx, and pptx) to png/csv/text for verification.
 
 ### Developed using JetBrains IDEs
 
-[![JetBrains logo.](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg)](https://jb.gg/OpenSourceSupport)<!-- endInclude -->
+[![JetBrains logo.](https://raw.githubusercontent.com/VerifyTests/Verify.Syncfusion/main/docs/jetbrains.png)](https://jb.gg/OpenSourceSupport)<!-- endInclude -->

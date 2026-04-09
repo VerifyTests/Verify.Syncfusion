@@ -24,7 +24,7 @@ An [Syncfusion License](https://www.syncfusion.com/sales/licensing) is required 
 
 ### Developed using JetBrains IDEs
 
-[![JetBrains logo.](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg)](https://jb.gg/OpenSourceSupport)<!-- endInclude -->
+[![JetBrains logo.](https://raw.githubusercontent.com/VerifyTests/Verify.Syncfusion/main/docs/jetbrains.png)](https://jb.gg/OpenSourceSupport)<!-- endInclude -->
 
 
 ## NuGet
