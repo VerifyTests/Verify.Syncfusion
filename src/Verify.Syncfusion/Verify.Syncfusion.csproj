@@ -1,8 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net48;net8.0;net9.0;net10.0</TargetFrameworks>
+    <PackageLicenseFile>OsmfEula.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="..\..\OsmfEula.txt" Pack="true" PackagePath="\" />
     <PackageReference Include="DeterministicIoPackaging" />
     <PackageReference Include="Verify" />
     <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" />
