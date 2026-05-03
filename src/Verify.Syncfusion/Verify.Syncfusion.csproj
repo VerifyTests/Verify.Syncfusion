@@ -3,6 +3,7 @@
     <TargetFrameworks>net48;net8.0;net9.0;net10.0</TargetFrameworks>
     <PackageLicenseFile>OsmfEula.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <UserSecretsId>SponsorCheck</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\OsmfEula.txt" Pack="true" PackagePath="\" />
@@ -17,6 +18,7 @@
     <PackageReference Include="Syncfusion.DocIO.Net.Core" />
     <PackageReference Include="Syncfusion.Presentation.Net.Core" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
+    <PackageReference Include="SponsorCheck" PrivateAssets="all" />
     <PackageReference Include="System.Text.Json" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" />
     <PackageReference Include="Microsoft.Sbom.Targets" PrivateAssets="all" Condition="'$(CI)' == 'true'" />
