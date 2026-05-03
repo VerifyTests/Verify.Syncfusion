@@ -1,44 +1,21 @@
-﻿[
-  {
-    Title: Lorem ipsum,
-    Subject: ,
-    Author: Simon Cropp,
-    Keywords: ,
-    Comments: ,
-    Template: ,
-    LastAuthor: Simon Cropp,
-    RevisionNumber: 1,
-    LastPrinted: DateTime_1,
-    CreationDate: DateTime_2,
-    LastSaveDate: DateTime_3,
-    WordCount: 231,
-    PresentationTarget: Custom,
-    ParagraphCount: 14,
-    SlideCount: 3,
-    NoteCount: 3,
-    ScaleCrop: false,
-    LinksDirty: false,
-    ApplicationName: Microsoft Office PowerPoint
-  },
-  {
-    Width: 1058,
-    Height: 794,
-    HorizontalResolution: 96.0,
-    VerticalResolution: 96.0,
-    ResolutionUnits: PixelsPerInch
-  },
-  {
-    Width: 1058,
-    Height: 794,
-    HorizontalResolution: 96.0,
-    VerticalResolution: 96.0,
-    ResolutionUnits: PixelsPerInch
-  },
-  {
-    Width: 1058,
-    Height: 794,
-    HorizontalResolution: 96.0,
-    VerticalResolution: 96.0,
-    ResolutionUnits: PixelsPerInch
-  }
-]
+﻿{
+  Title: Lorem ipsum,
+  Subject: ,
+  Author: Simon Cropp,
+  Keywords: ,
+  Comments: ,
+  Template: ,
+  LastAuthor: Simon Cropp,
+  RevisionNumber: 1,
+  LastPrinted: DateTime_1,
+  CreationDate: DateTime_2,
+  LastSaveDate: DateTime_3,
+  WordCount: 231,
+  PresentationTarget: Custom,
+  ParagraphCount: 14,
+  SlideCount: 3,
+  NoteCount: 3,
+  ScaleCrop: false,
+  LinksDirty: false,
+  ApplicationName: Microsoft Office PowerPoint
+}

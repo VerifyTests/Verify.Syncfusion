@@ -1,20 +1,11 @@
-﻿[
-  {
-    LastAuthor: Simon Cropp,
-    Company: ,
-    LinesCount: 9,
-    ParagraphCount: 10,
-    WordCount: 178,
-    PageCount: 1,
-    ApplicationName: Microsoft Office Word,
-    CreateDate: DateTime_1,
-    RevisionNumber: 3
-  },
-  {
-    Width: 793,
-    Height: 1122,
-    HorizontalResolution: 96.0,
-    VerticalResolution: 96.0,
-    ResolutionUnits: PixelsPerInch
-  }
-]
+﻿{
+  LastAuthor: Simon Cropp,
+  Company: ,
+  LinesCount: 9,
+  ParagraphCount: 10,
+  WordCount: 178,
+  PageCount: 1,
+  ApplicationName: Microsoft Office Word,
+  CreateDate: DateTime_1,
+  RevisionNumber: 3
+}
