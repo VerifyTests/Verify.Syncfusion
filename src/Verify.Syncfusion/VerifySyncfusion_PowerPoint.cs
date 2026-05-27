@@ -1,4 +1,5 @@
-﻿using Syncfusion.Presentation;
+﻿using DeterministicIoPackaging;
+using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 
 namespace VerifyTests;
@@ -11,8 +12,24 @@ public static partial class VerifySyncfusion
         return ConvertPowerPoint(name, document, settings);
     }
 
-    static ConversionResult ConvertPowerPoint(string? name, IPresentation document, IReadOnlyDictionary<string, object> settings) =>
-        new(document.BuiltInDocumentProperties, GetPowerPointStreams(name, document, settings).ToList());
+    static ConversionResult ConvertPowerPoint(string? name, IPresentation document, IReadOnlyDictionary<string, object> settings)
+    {
+        List<Target> targets = [BuildPptxTarget(document)];
+        targets.AddRange(GetPowerPointStreams(name, document, settings));
+        return new(document.BuiltInDocumentProperties, targets);
+    }
+
+    static Target BuildPptxTarget(IPresentation document)
+    {
+        using var source = new MemoryStream();
+        document.Save(source);
+        var resultStream = DeterministicPackage.Convert(source);
+
+        return new("pptx", resultStream, performConversion: false)
+        {
+            BypassComparersForSubsequentOnDifference = true
+        };
+    }
 
     static IEnumerable<Target> GetPowerPointStreams(string? name, IPresentation document, IReadOnlyDictionary<string, object> settings)
     {
