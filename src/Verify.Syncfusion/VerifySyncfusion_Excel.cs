@@ -58,7 +58,13 @@ public static partial class VerifySyncfusion
         book.SaveAs(sourceStream, ExcelSaveType.SaveAsXLS);
         var resultStream = DeterministicPackage.Convert(sourceStream);
 
-        List<Target> targets = [new("xlsx", resultStream, performConversion: false)];
+        List<Target> targets =
+        [
+            new("xlsx", resultStream, performConversion: false)
+            {
+                BypassComparersForSubsequentOnDifference = true
+            }
+        ];
         foreach (var sheet in book.Worksheets)
         {
             targets.Add(GetSheetStreams(targetName, sheet));

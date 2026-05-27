@@ -1,4 +1,5 @@
-﻿using Syncfusion.DocIO;
+﻿using DeterministicIoPackaging;
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
 
@@ -20,8 +21,24 @@ public static partial class VerifySyncfusion
         return ConvertWord(name, document);
     }
 
-    static ConversionResult ConvertWord(string? name, WordDocument document) =>
-        new(GetInfo(document), GetWordStreams(name, document).ToList());
+    static ConversionResult ConvertWord(string? name, WordDocument document)
+    {
+        List<Target> targets = [BuildDocxTarget(document)];
+        targets.AddRange(GetWordStreams(name, document));
+        return new(GetInfo(document), targets);
+    }
+
+    static Target BuildDocxTarget(WordDocument document)
+    {
+        using var source = new MemoryStream();
+        document.Save(source, FormatType.Docx);
+        var resultStream = DeterministicPackage.Convert(source);
+
+        return new("docx", resultStream, performConversion: false)
+        {
+            BypassComparersForSubsequentOnDifference = true
+        };
+    }
 
     static object GetInfo(IWordDocument document)
     {
