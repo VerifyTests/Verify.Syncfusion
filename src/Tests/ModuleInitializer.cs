@@ -13,7 +13,6 @@ public static class ModuleInitializer
     [ModuleInitializer]
     public static void InitializeOther()
     {
-        VerifyDiffPlex.Initialize(OutputType.Compact);
         VerifierSettings.UseSsimForPng(.7);
         VerifierSettings.InitializePlugins();
     }
