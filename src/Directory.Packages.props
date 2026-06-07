@@ -27,7 +27,7 @@
     <PackageVersion Include="DiffEngine" Version="19.2.0" />
     <PackageVersion Include="EmptyFiles" Version="8.18.1" />
     <PackageVersion Include="SimpleInfoName" Version="3.2.0" />
-    <PackageVersion Include="SponsorCheck" Version="0.5.0" GitHubSponsorsAccount="VerifyTests" />
+    <PackageVersion Include="SponsorCheck" Version="0.10.0" GitHubSponsorsAccount="VerifyTests" />
     <!-- CVE -->
     <PackageVersion Include="System.Text.Json" Version="10.0.8" />
   </ItemGroup>
