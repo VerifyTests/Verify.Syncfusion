@@ -16,9 +16,13 @@ public static partial class VerifySyncfusion
     {
         List<Target> targets = [BuildPptxTarget(document)];
         targets.AddRange(GetPowerPointStreams(name, document, settings));
+        // BuiltInDocumentProperties already surfaces the full SlideCount, so a PagesToInclude filter
+        // (which only trims the rendered slide pngs) remains unambiguous in the info snapshot.
         return new(document.BuiltInDocumentProperties, targets);
     }
 
+    // The pptx snapshot is always the full presentation, regardless of PagesToInclude:
+    // PagesToInclude only trims the rendered slide png pages in GetPowerPointStreams.
     static Target BuildPptxTarget(IPresentation document)
     {
         using var source = new MemoryStream();

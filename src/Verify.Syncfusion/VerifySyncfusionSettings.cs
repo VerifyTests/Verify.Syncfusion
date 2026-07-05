@@ -4,9 +4,15 @@ namespace VerifyTests;
 
 public static class VerifySyncfusionSettings
 {
+    /// <summary>
+    /// Limits the number of rendered slide/page <c>png</c> snapshots to the first
+    /// <paramref name="count"/>. Any full-document binary target (for example the <c>pptx</c>
+    /// emitted for PowerPoint) is unaffected and always contains the full source document.
+    /// </summary>
     public static void PagesToInclude(this VerifySettings settings, int count) =>
         settings.Context["VerifySyncfusionPagesToInclude"] = count;
 
+    /// <inheritdoc cref="PagesToInclude(VerifySettings, int)"/>
     public static SettingsTask PagesToInclude(this SettingsTask settings, int count)
     {
         settings.CurrentSettings.PagesToInclude(count);
