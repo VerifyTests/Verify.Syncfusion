@@ -25,7 +25,7 @@
     <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="10.0.9" />
     <PackageVersion Include="Argon" Version="0.34.0" />
     <PackageVersion Include="DiffEngine" Version="19.2.0" />
-    <PackageVersion Include="EmptyFiles" Version="8.18.1" />
+    <PackageVersion Include="EmptyFiles" Version="8.18.2" />
     <PackageVersion Include="SimpleInfoName" Version="3.2.0" />
     <PackageVersion Include="SponsorCheck" Version="0.11.0" GitHubSponsorsAccount="VerifyTests" />
     <!-- CVE -->
