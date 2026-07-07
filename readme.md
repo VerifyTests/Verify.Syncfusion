@@ -49,7 +49,7 @@ An [Syncfusion License](https://www.syncfusion.com/sales/licensing) is required 
 public static void Initialize() =>
     VerifySyncfusion.Initialize();
 ```
-<sup><a href='/src/Tests/ModuleInitializer.cs#L5-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-enable' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-enable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -172,6 +172,7 @@ public Task VerifyExcelStream()
 <!-- snippet: Samples.VerifyExcel#Sheet1.verified.csv -->
 <a id='snippet-Samples.VerifyExcel#Sheet1.verified.csv'></a>
 ```csv
+Created with a trial version of Syncfusion Excel library or registered the wrong key in your application. Go to www.syncfusion.com/account/claim-license-key to obtain the valid key.
 0, First Name, Last Name, Gender, Country, Age, Id, Formula, , , , , , , , , , , , , , , , 
 1, Dulce, Abril, Female, United States, 32, 1562, 1563, , , , , , , , , , , , , , , , 
 2, Mara, Hashimoto, Female, Great Britain, 25, 1582, 1584, , , , , , , , , , , , , , , , 
@@ -217,9 +218,11 @@ public Task VerifyExcelStream()
 6, Gaston, Brumm, Male, United States, 24, 2554, 2560, , , , , , , , , , , , , , , , 
 7, Etta, Hurn, Female, Great Britain, 56, 3598, 3605, , , , , , , , , , , , , , , , 
 8, Earlean, Melgar, Female, United States, 27, 2456, 2464, , , , , , , , , , , , , , , , 
-9, Vincenza, Weiland, Female, United States, 40, 6548, 6557, , , , , , , , , , , , , , , ,
+9, Vincenza, Weiland, Female, United States, 40, 6548, 6557, , , , , , , , , , , , , , , , 
+Created with a trial version of Syncfusion Excel library or registered the wrong key in your application. Click here to obtain the valid key., , , , , , , , , , , , , , , , , , , , , , , 
+Created with a trial version of Syncfusion Excel library or registered the wrong key in your application. Go to www.syncfusion.com/account/claim-license-key to obtain the valid key.
 ```
-<sup><a href='/src/Tests/Samples.VerifyExcel%23Sheet1.verified.csv#L1-L46' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel#Sheet1.verified.csv' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyExcel%23Sheet1.verified.csv#L1-L49' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel#Sheet1.verified.csv' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -279,6 +282,9 @@ public Task VerifyWordStream()
 <!-- snippet: Samples.VerifyWord#01.verified.txt -->
 <a id='snippet-Samples.VerifyWord#01.verified.txt'></a>
 ```txt
+Created with a trial version of Syncfusion Word library
+
+Created with a trial version of Syncfusion Word library or registered the wrong key in your application. Click here to obtain the valid key.
 Lorem ipsum 
 
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac faucibus odio. 
@@ -291,8 +297,10 @@ Maecenas mauris lectus, lobortis et purus mattis, blandit dictum tellus.
 * Mauris id ex erat. Nunc vulputate neque vitae justo facilisis, non condimentum ante sagittis. 
 * Morbi viverra semper lorem nec molestie. 
 * Maecenas tincidunt est efficitur ligula euismod, sit amet ornare est vulputate.
+
+Created with a trial version of Syncfusion Word library or registered the wrong key in your application. Click here to obtain the valid key.
 ```
-<sup><a href='/src/Tests/Samples.VerifyWord%2301.verified.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#01.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyWord%2301.verified.txt#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord#01.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
