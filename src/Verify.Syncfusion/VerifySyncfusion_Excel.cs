@@ -56,6 +56,8 @@ public static partial class VerifySyncfusion
         }
 
         book.SaveAs(sourceStream, ExcelSaveType.SaveAsXLS);
+        ScrubProtection(sourceStream, _ => _.StartsWith("xl/worksheets/", StringComparison.Ordinal) &&
+                                           _.EndsWith(".xml", StringComparison.Ordinal));
         var resultStream = DeterministicPackage.Convert(sourceStream);
 
         List<Target> targets =

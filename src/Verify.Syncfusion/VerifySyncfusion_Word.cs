@@ -32,6 +32,7 @@ public static partial class VerifySyncfusion
     {
         using var source = new MemoryStream();
         document.Save(source, FormatType.Docx);
+        ScrubProtection(source, _ => _ == "word/settings.xml");
         var resultStream = DeterministicPackage.Convert(source);
 
         return new("docx", resultStream, performConversion: false)
