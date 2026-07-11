@@ -14,7 +14,13 @@ public static partial class VerifySyncfusion
 
     static ConversionResult ConvertPowerPoint(string? name, IPresentation document, IReadOnlyDictionary<string, object> settings)
     {
-        List<Target> targets = [BuildPptxTarget(document)];
+        List<Target> targets = [];
+        // Building the deterministic pptx is expensive, so skip it when the pptx target is excluded.
+        if (!settings.IsTargetExcluded("pptx"))
+        {
+            targets.Add(BuildPptxTarget(document));
+        }
+
         targets.AddRange(GetPowerPointStreams(name, document, settings));
         // BuiltInDocumentProperties already surfaces the full SlideCount, so a PagesToInclude filter
         // (which only trims the rendered slide pngs) remains unambiguous in the info snapshot.

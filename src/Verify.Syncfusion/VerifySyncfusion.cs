@@ -19,7 +19,7 @@ public static partial class VerifySyncfusion
 
         VerifierSettings.RegisterStreamConverter("xlsx", ConvertExcel);
         VerifierSettings.RegisterStreamConverter("xls", ConvertExcel);
-        VerifierSettings.RegisterFileConverter<IWorkbook>((target, _) => ConvertExcel(null, target));
+        VerifierSettings.RegisterFileConverter<IWorkbook>((target, context) => ConvertExcel(null, target, context));
 
         VerifierSettings.RegisterStreamConverter("pdf", ConvertPdf);
         VerifierSettings.RegisterFileConverter<PdfDocument>((target, context) => ConvertPdf(null, target, context));
@@ -31,6 +31,6 @@ public static partial class VerifySyncfusion
 
         VerifierSettings.RegisterStreamConverter("docx", ConvertDocx);
         VerifierSettings.RegisterStreamConverter("doc", ConvertDoc);
-        VerifierSettings.RegisterFileConverter<WordDocument>((target, _) => ConvertWord(null, target));
+        VerifierSettings.RegisterFileConverter<WordDocument>((target, context) => ConvertWord(null, target, context));
     }
 }
