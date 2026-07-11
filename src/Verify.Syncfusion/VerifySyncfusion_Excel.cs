@@ -16,13 +16,13 @@ public static partial class VerifySyncfusion
             }
         };
         var workbook = engine.Excel.Workbooks.Open(stream);
-        return ConvertExcel(targetName, workbook);
+        return ConvertExcel(targetName, workbook, settings);
     }
 
-    static ConversionResult ConvertExcel(string? targetName, IWorkbook book)
+    static ConversionResult ConvertExcel(string? targetName, IWorkbook book, IReadOnlyDictionary<string, object> settings)
     {
         var info = GetInfo(book);
-        return new(info, GetExcelStreams(targetName, book).ToList());
+        return new(info, GetExcelStreams(targetName, book, settings).ToList());
     }
 
     static object GetInfo(IWorkbook book) =>
@@ -47,32 +47,40 @@ public static partial class VerifySyncfusion
             book.StandardFontSize,
         };
 
-    static List<Target> GetExcelStreams(string? targetName, IWorkbook book)
+    static List<Target> GetExcelStreams(string? targetName, IWorkbook book, IReadOnlyDictionary<string, object> settings)
     {
-        using var sourceStream = new MemoryStream();
         if (book.Version == ExcelVersion.Excel97to2003)
         {
             throw new("Excel97to2003 not supported");
         }
 
-        book.SaveAs(sourceStream, ExcelSaveType.SaveAsXLS);
-        ScrubProtection(sourceStream, _ => _.StartsWith("xl/worksheets/", StringComparison.Ordinal) &&
-                                           _.EndsWith(".xml", StringComparison.Ordinal));
-        var resultStream = DeterministicPackage.Convert(sourceStream);
+        List<Target> targets = [];
+        // Building the deterministic xlsx is expensive, so skip it when the xlsx target is excluded.
+        if (!settings.IsTargetExcluded("xlsx"))
+        {
+            targets.Add(BuildXlsxTarget(book));
+        }
 
-        List<Target> targets =
-        [
-            new("xlsx", resultStream, performConversion: false)
-            {
-                BypassComparersForSubsequentOnDifference = true
-            }
-        ];
         foreach (var sheet in book.Worksheets)
         {
             targets.Add(GetSheetStreams(targetName, sheet));
         }
 
         return targets;
+    }
+
+    static Target BuildXlsxTarget(IWorkbook book)
+    {
+        using var sourceStream = new MemoryStream();
+        book.SaveAs(sourceStream, ExcelSaveType.SaveAsXLS);
+        ScrubProtection(sourceStream, _ => _.StartsWith("xl/worksheets/", StringComparison.Ordinal) &&
+                                           _.EndsWith(".xml", StringComparison.Ordinal));
+        var resultStream = DeterministicPackage.Convert(sourceStream);
+
+        return new("xlsx", resultStream, performConversion: false)
+        {
+            BypassComparersForSubsequentOnDifference = true
+        };
     }
 
     static Target GetSheetStreams(string? targetName, IWorksheet sheet)

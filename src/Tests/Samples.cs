@@ -50,6 +50,16 @@ public class Samples
 
     #endregion
 
+    #region ExcludePptx
+
+    // Excludes pptx, so the deterministic pptx target is skipped.
+    [Test]
+    public Task ExcludePptx() =>
+        VerifyFile("sample.pptx")
+            .ExcludeTargets("pptx");
+
+    #endregion
+
 #endif
 
     #region VerifyExcel
@@ -71,6 +81,16 @@ public class Samples
 
     #endregion
 
+    #region ExcludeXlsx
+
+    // Excludes xlsx, so the deterministic xlsx target is skipped.
+    [Test]
+    public Task ExcludeXlsx() =>
+        VerifyFile("sample.xlsx")
+            .ExcludeTargets("xlsx");
+
+    #endregion
+
     #region VerifyWord
 
     [Test]
@@ -87,6 +107,16 @@ public class Samples
         var stream = new MemoryStream(File.ReadAllBytes("sample.docx"));
         return Verify(stream, "docx");
     }
+
+    #endregion
+
+    #region ExcludeDocx
+
+    // Excludes docx, so the deterministic docx target is skipped.
+    [Test]
+    public Task ExcludeDocx() =>
+        VerifyFile("sample.docx")
+            .ExcludeTargets("docx");
 
     #endregion
 }

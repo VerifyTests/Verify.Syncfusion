@@ -8,22 +8,28 @@ namespace VerifyTests;
 public static partial class VerifySyncfusion
 {
     static ConversionResult ConvertDocx(string? name, Stream stream, IReadOnlyDictionary<string, object> settings) =>
-        Convert(name, stream, FormatType.Docx);
+        Convert(name, stream, FormatType.Docx, settings);
 
     static ConversionResult ConvertDoc(string? name, Stream stream, IReadOnlyDictionary<string, object> settings) =>
-        Convert(name, stream, FormatType.Doc);
+        Convert(name, stream, FormatType.Doc, settings);
 
-    static ConversionResult Convert(string? name, Stream stream, FormatType formatType)
+    static ConversionResult Convert(string? name, Stream stream, FormatType formatType, IReadOnlyDictionary<string, object> settings)
     {
         var document = new WordDocument(stream, formatType);
         document.UpdateWordCount();
         document.UpdateDocumentFields();
-        return ConvertWord(name, document);
+        return ConvertWord(name, document, settings);
     }
 
-    static ConversionResult ConvertWord(string? name, WordDocument document)
+    static ConversionResult ConvertWord(string? name, WordDocument document, IReadOnlyDictionary<string, object> settings)
     {
-        List<Target> targets = [BuildDocxTarget(document)];
+        List<Target> targets = [];
+        // Building the deterministic docx is expensive, so skip it when the docx target is excluded.
+        if (!settings.IsTargetExcluded("docx"))
+        {
+            targets.Add(BuildDocxTarget(document));
+        }
+
         targets.AddRange(GetWordStreams(name, document));
         return new(GetInfo(document), targets);
     }
