@@ -7,6 +7,7 @@
   <ItemGroup>
     <None Include="..\..\OsmfEula.txt" Pack="true" PackagePath="\" />
     <PackageReference Include="DeterministicIoPackaging" />
+    <PackageReference Include="DeterministicPdf" />
     <PackageReference Include="Verify" />
     <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" />
     <PackageReference Include="Syncfusion.Pdf.Net.Core" />
