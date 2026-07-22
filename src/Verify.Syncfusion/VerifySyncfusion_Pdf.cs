@@ -1,4 +1,6 @@
-﻿namespace VerifyTests;
+﻿using DeterministicPdf;
+
+namespace VerifyTests;
 
 public static partial class VerifySyncfusion
 {
@@ -68,6 +70,19 @@ public static partial class VerifySyncfusion
         var pdfStream = new MemoryStream();
         document.Save(pdfStream);
         pdfStream.Position = 0;
+
+        // The document is already saved here to feed the renderer, so the pdf snapshot costs only the
+        // neutralizing pass. It is always the full document, regardless of PagesToInclude, which
+        // trims the rendered pages below. Mirrors the xlsx/docx/pptx targets in the sibling formats.
+        if (!settings.IsTargetExcluded("pdf"))
+        {
+            yield return new("pdf", PdfNormalizer.Normalize(pdfStream), name, performConversion: false)
+            {
+                BypassComparersForSubsequentOnDifference = true
+            };
+            pdfStream.Position = 0;
+        }
+
         var pngDevice = settings.GetPdfPngDevice(document);
         pngDevice.Load(pdfStream);
         for (var index = 0; index < pagesToInclude; index++)
