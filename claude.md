@@ -42,4 +42,4 @@ Each converter returns a `ConversionResult` containing metadata (info object) an
 - **C# preview language features** are enabled (`LangVersion: preview`).
 - **MarkdownSnippets:** README code samples are pulled from `#region` blocks in test code. The `<!-- snippet: -->` / `<!-- endSnippet -->` markers in `readme.md` are auto-generated — edit the source regions in `src/Tests/`, not the readme directly.
 - **Verified files:** Test outputs (`.verified.txt`, `.verified.png`, `.verified.csv`, `.verified.xlsx`) are committed and should be updated via `dotnet test` when converter output changes.
-- **CI:** AppVeyor builds from `src/appveyor.yml`. On failure, `*.received.*` files are uploaded as artifacts for diff inspection.
+- **CI:** GitHub Actions builds from `.github/workflows/build.yml`. On failure, `*.received.*` files are uploaded as artifacts for diff inspection.
