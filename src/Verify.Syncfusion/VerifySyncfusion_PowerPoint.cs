@@ -1,5 +1,4 @@
-﻿using DeterministicIoPackaging;
-using Syncfusion.Presentation;
+﻿using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 
 namespace VerifyTests;

@@ -1,5 +1,4 @@
-﻿using DeterministicIoPackaging;
-using Syncfusion.DocIO;
+﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
 
