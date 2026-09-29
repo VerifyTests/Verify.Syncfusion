@@ -17,6 +17,10 @@ public static partial class VerifySyncfusion
 
         Initialized = true;
 
+        // By default Syncfusion names the font/graphics-state resources it adds on save
+        // (eg the trial watermark) with a fresh Guid, so the saved pdf differs on every run.
+        PdfDocument.EnableUniqueResourceNaming = false;
+
         VerifierSettings.RegisterStreamConverter("xlsx", ConvertExcel);
         VerifierSettings.RegisterStreamConverter("xls", ConvertExcel);
         VerifierSettings.RegisterFileConverter<IWorkbook>((target, context) => ConvertExcel(null, target, context));

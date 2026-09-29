@@ -1,5 +1,4 @@
-﻿using DeterministicIoPackaging;
-using Syncfusion.XlsIO;
+﻿using Syncfusion.XlsIO;
 using Syncfusion.XlsIORenderer;
 
 namespace VerifyTests;
