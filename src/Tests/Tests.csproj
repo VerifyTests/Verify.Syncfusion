@@ -15,7 +15,6 @@
     <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" />
     <PackageReference Include="Syncfusion.DocIO.Net.Core" />
     <PackageReference Include="Syncfusion.Presentation.Net.Core" />
-    <PackageReference Include="Verify.DiffPlex" />
     <PackageReference Include="Verify.NUnit" />
     <PackageReference Include="Argon" />
     <PackageReference Include="DiffEngine" />
