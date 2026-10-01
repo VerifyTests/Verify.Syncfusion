@@ -42,6 +42,11 @@ public static partial class VerifySyncfusion
 
     static IEnumerable<Target> GetPowerPointStreams(string? name, IPresentation document, IReadOnlyDictionary<string, object> settings)
     {
+        if (!outputs.HasFlag(SyncfusionOutputs.Png))
+        {
+            yield break;
+        }
+
         var renderer = new PresentationRenderer();
 
         document.PresentationRenderer = renderer;

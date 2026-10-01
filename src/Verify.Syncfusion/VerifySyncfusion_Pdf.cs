@@ -83,14 +83,33 @@ public static partial class VerifySyncfusion
             pdfStream.Position = 0;
         }
 
+        var includeText = outputs.HasFlag(SyncfusionOutputs.Text);
+        var includePng = outputs.HasFlag(SyncfusionOutputs.Png);
+        if (!includeText && !includePng)
+        {
+            yield break;
+        }
+
         var pngDevice = settings.GetPdfPngDevice(document);
-        pngDevice.Load(pdfStream);
+        if (includePng)
+        {
+            pngDevice.Load(pdfStream);
+        }
+
         for (var index = 0; index < pagesToInclude; index++)
         {
-            var page = pages[index];
-            var text = page.ExtractText();
-            yield return new("txt", text, name);
-            //TODO: also export page text
+            if (includeText)
+            {
+                var page = pages[index];
+                var text = page.ExtractText();
+                yield return new("txt", text, name);
+            }
+
+            if (!includePng)
+            {
+                continue;
+            }
+
             var pngStream = new MemoryStream();
             var image = pngDevice.ExportAsImage(index);
             var skData = image.Encode(SKEncodedImageFormat.Png,100);
