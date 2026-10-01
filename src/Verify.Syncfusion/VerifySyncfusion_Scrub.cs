@@ -5,22 +5,19 @@ namespace VerifyTests;
 
 public static partial class VerifySyncfusion
 {
-    // Matches the salt/hash attributes of protection elements, capturing the attribute
-    // name so it can be preserved in the replacement. Covers all four forms seen across
-    // Office documents:
-    //   xlsx sheetProtection → saltValue / hashValue
-    //   docx documentProtection → w:salt / w:hash (Syncfusion emits the legacy names)
-    // The word-boundary anchors the attribute name and keeps the w: prefix (which sits
-    // before the match) intact, while distinguishing salt= from saltValue=.
-    static readonly Regex saltAttribute = new("\\b(salt|saltValue)=\"[^\"]*\"", RegexOptions.Compiled);
-    static readonly Regex hashAttribute = new("\\b(hash|hashValue)=\"[^\"]*\"", RegexOptions.Compiled);
+    // Matches the lang attribute of DrawingML run properties (a:rPr / a:endParaRPr).
+    static readonly Regex langAttribute = new("(<a:(?:rPr|endParaRPr)\\b[^>]*?\\blang=)\"[^\"]*\"", RegexOptions.Compiled);
 
-    // Office documents embed protection (Excel sheet protection, Word document/write
-    // protection) with a fresh random cryptographic salt on every save, plus a hash
-    // derived from it. That makes the exported package non-deterministic — the salt and
-    // hash differ on every run — so the snapshot can never match. Replace them with fixed
-    // placeholders before deterministic packaging.
-    static void ScrubProtection(MemoryStream stream, Func<string, bool> includeEntry)
+    // Syncfusion stamps the text runs it adds to drawings (eg the trial watermark) with the
+    // OS locale, not CurrentCulture, so the package differs between machines. Replace it
+    // with a fixed placeholder before deterministic packaging.
+    static void ScrubLanguage(MemoryStream stream, Func<string, bool> includeEntry) =>
+        ScrubEntries(
+            stream,
+            includeEntry,
+            _ => langAttribute.Replace(_, "$1\"DeterministicLang\""));
+
+    static void ScrubEntries(MemoryStream stream, Func<string, bool> includeEntry, Func<string, string> scrub)
     {
         using var archive = new ZipArchive(stream, ZipArchiveMode.Update, leaveOpen: true);
         foreach (var entry in archive.Entries)
@@ -36,8 +33,7 @@ public static partial class VerifySyncfusion
                 content = reader.ReadToEnd();
             }
 
-            var scrubbed = saltAttribute.Replace(content, "$1=\"DeterministicSalt\"");
-            scrubbed = hashAttribute.Replace(scrubbed, "$1=\"DeterministicHash\"");
+            var scrubbed = scrub(content);
             if (scrubbed == content)
             {
                 continue;

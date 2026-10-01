@@ -72,8 +72,8 @@ public static partial class VerifySyncfusion
     {
         using var sourceStream = new MemoryStream();
         book.SaveAs(sourceStream, ExcelSaveType.SaveAsXLS);
-        ScrubProtection(sourceStream, _ => _.StartsWith("xl/worksheets/", StringComparison.Ordinal) &&
-                                           _.EndsWith(".xml", StringComparison.Ordinal));
+        ScrubLanguage(sourceStream, _ => _.StartsWith("xl/drawings/", StringComparison.Ordinal) &&
+                                         _.EndsWith(".xml", StringComparison.Ordinal));
         var resultStream = DeterministicPackage.Convert(sourceStream);
 
         return new("xlsx", resultStream, performConversion: false)
