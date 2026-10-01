@@ -1,1 +1,2 @@
-﻿global using Syncfusion.Licensing;
+﻿global using System.Globalization;
+global using Syncfusion.Licensing;
