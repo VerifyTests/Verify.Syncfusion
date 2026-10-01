@@ -8,7 +8,10 @@ public static partial class VerifySyncfusion
 {
     public static bool Initialized { get; private set; }
 
-    public static void Initialize()
+    static SyncfusionOutputs outputs = SyncfusionOutputs.All;
+
+    /// <param name="outputs">Which output kinds documents are split into. Defaults to <see cref="SyncfusionOutputs.All"/>.</param>
+    public static void Initialize(SyncfusionOutputs outputs = SyncfusionOutputs.All)
     {
         if (Initialized)
         {
@@ -16,6 +19,7 @@ public static partial class VerifySyncfusion
         }
 
         Initialized = true;
+        VerifySyncfusion.outputs = outputs;
 
         // By default Syncfusion names the font/graphics-state resources it adds on save
         // (eg the trial watermark) with a fresh Guid, so the saved pdf differs on every run.

@@ -53,6 +53,26 @@ public static void Initialize() =>
 <!-- endSnippet -->
 
 
+### Outputs
+
+By default documents are split into all supported output kinds. `Initialize` accepts a `SyncfusionOutputs` flags value to control which are produced (excluded kinds are not rendered/extracted at all):
+
+ * `Png`: rendered images of pdf pages, docx pages, and pptx slides.
+ * `Text`: extracted text of pdf pages, and of a docx.
+ * `Csv`: one csv per xlsx worksheet.
+ * `All` (default): all of the above.
+
+<!-- snippet: InitializeOutputs -->
+<a id='snippet-InitializeOutputs'></a>
+```cs
+[ModuleInitializer]
+public static void Initialize() =>
+    VerifySyncfusion.Initialize(SyncfusionOutputs.Text | SyncfusionOutputs.Csv);
+```
+<sup><a href='/src/StaticSettingsTests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-InitializeOutputs' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
 ### PDF
 
 

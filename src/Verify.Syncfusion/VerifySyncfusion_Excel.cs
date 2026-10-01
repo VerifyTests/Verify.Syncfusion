@@ -60,9 +60,12 @@ public static partial class VerifySyncfusion
             targets.Add(BuildXlsxTarget(book));
         }
 
-        foreach (var sheet in book.Worksheets)
+        if (outputs.HasFlag(SyncfusionOutputs.Csv))
         {
-            targets.Add(GetSheetStreams(targetName, sheet));
+            foreach (var sheet in book.Worksheets)
+            {
+                targets.Add(GetSheetStreams(targetName, sheet));
+            }
         }
 
         return targets;

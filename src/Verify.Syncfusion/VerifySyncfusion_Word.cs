@@ -69,9 +69,17 @@ public static partial class VerifySyncfusion
 
     static IEnumerable<Target> GetWordStreams(string? name, WordDocument document)
     {
-        using var stream = new MemoryStream();
-        document.SaveTxt(stream, Encoding.UTF8);
-        yield return new("txt", stream.ReadAsString());
+        if (outputs.HasFlag(SyncfusionOutputs.Text))
+        {
+            using var stream = new MemoryStream();
+            document.SaveTxt(stream, Encoding.UTF8);
+            yield return new("txt", stream.ReadAsString());
+        }
+
+        if (!outputs.HasFlag(SyncfusionOutputs.Png))
+        {
+            yield break;
+        }
 
         using var render = new DocIORenderer();
         var images = document.RenderAsImages();
