@@ -7,6 +7,11 @@ namespace VerifyTests;
 public enum SyncfusionOutputs
 {
     /// <summary>
+    /// No outputs. Only the source document and info are emitted.
+    /// </summary>
+    None = 0,
+
+    /// <summary>
     /// Rendered png images: one per pdf page, docx page, and pptx slide.
     /// </summary>
     Png = 1,
