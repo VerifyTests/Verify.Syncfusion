@@ -60,6 +60,7 @@ By default documents are split into all supported output kinds. `Initialize` acc
  * `Png`: rendered images of pdf pages, docx pages, and pptx slides.
  * `Text`: extracted text of pdf pages, and of a docx.
  * `Csv`: one csv per xlsx worksheet.
+ * `None`: none of the above. Only the info and the source document are emitted.
  * `All` (default): all of the above.
 
 <!-- snippet: InitializeOutputs -->
