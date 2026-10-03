@@ -11,7 +11,7 @@ public class Samples
 
     [Test]
     public Task VerifyPdfResolution() =>
-        VerifyFile("sample.pdf")
+        VerifyFile(ProjectFiles.sample_pdf.Path)
             .PdfPngDevice(
                 _ => new()
                 {

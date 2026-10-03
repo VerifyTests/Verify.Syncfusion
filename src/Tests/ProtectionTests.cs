@@ -15,7 +15,7 @@ public class ProtectionTests
 {
     static MemoryStream ProtectedWord()
     {
-        var document = new WordDocument("sample.docx", FormatType.Docx);
+        var document = new WordDocument(ProjectFiles.sample_docx.Path, FormatType.Docx);
         document.Protect(ProtectionType.AllowOnlyReading, "password");
         var stream = new MemoryStream();
         document.Save(stream, FormatType.Docx);

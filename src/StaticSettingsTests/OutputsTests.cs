@@ -4,13 +4,13 @@ public class OutputsTests
 {
     [Test]
     public Task PdfWithoutPng() =>
-        VerifyFile("sample.pdf");
+        VerifyFile(ProjectFiles.sample_pdf.Path);
 
     [Test]
     public Task WordWithoutPng() =>
-        VerifyFile("sample.docx");
+        VerifyFile(ProjectFiles.sample_docx.Path);
 
     [Test]
     public Task ExcelWithCsv() =>
-        VerifyFile("sample.xlsx");
+        VerifyFile(ProjectFiles.sample_xlsx.Path);
 }

@@ -9,7 +9,7 @@ public class PowerPointPagesToIncludeTests
     [Test]
     public Task PagesToIncludeTrimsRenderedSlidesOnly()
     {
-        var stream = new MemoryStream(File.ReadAllBytes("sample.pptx"));
+        var stream = new MemoryStream(File.ReadAllBytes(ProjectFiles.sample_pptx));
         return Verify(stream, "pptx")
             .PagesToInclude(1);
     }

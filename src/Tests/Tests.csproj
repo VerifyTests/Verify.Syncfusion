@@ -23,6 +23,7 @@
     <PackageReference Include="Verify" />
     <ProjectReference Include="..\Verify.Syncfusion\Verify.Syncfusion.csproj" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
+    <PackageReference Include="ProjectFiles" PrivateAssets="all" />
     <None Update="sample.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
