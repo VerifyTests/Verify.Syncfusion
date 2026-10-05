@@ -1,0 +1,13 @@
+﻿{
+  Document: {
+    LastAuthor: Simon Cropp,
+    Company: ,
+    LinesCount: 9,
+    ParagraphCount: 10,
+    WordCount: 178,
+    ApplicationName: Microsoft Office Word,
+    CreateDate: DateTime_1,
+    RevisionNumber: 3
+  },
+  PageCount: 2
+}

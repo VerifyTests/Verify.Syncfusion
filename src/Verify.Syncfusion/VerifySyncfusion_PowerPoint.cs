@@ -5,58 +5,51 @@ namespace VerifyTests;
 
 public static partial class VerifySyncfusion
 {
-    static ConversionResult ConvertPowerPoint(string? name, Stream stream, IReadOnlyDictionary<string, object> settings)
+    static ConversionResult ConvertPowerPoint(Stream stream, IReadOnlyDictionary<string, object> settings)
     {
         using var document = Presentation.Open(stream);
-        return ConvertPowerPoint(name, document, settings);
+        return ConvertPowerPoint(document, settings);
     }
 
-    static ConversionResult ConvertPowerPoint(string? name, IPresentation document, IReadOnlyDictionary<string, object> settings)
+    // A slide is a page: PagedConversion names its png, and writes the number of slides to the info
+    // file as the page count, so a PagesToInclude filter remains unambiguous in the info snapshot.
+    static ConversionResult ConvertPowerPoint(IPresentation document, IReadOnlyDictionary<string, object> settings)
     {
-        List<Target> targets = [];
+        var conversion = new PagedConversion(settings)
+        {
+            Info = document.BuiltInDocumentProperties
+        };
+
         // Building the deterministic pptx is expensive, so skip it when the pptx target is excluded.
         if (!settings.IsTargetExcluded("pptx"))
         {
-            targets.Add(BuildPptxTarget(document));
+            conversion.Source(BuildPptxTarget(document));
         }
 
-        targets.AddRange(GetPowerPointStreams(name, document, settings));
-        // BuiltInDocumentProperties already surfaces the full SlideCount, so a PagesToInclude filter
-        // (which only trims the rendered slide pngs) remains unambiguous in the info snapshot.
-        return new(document.BuiltInDocumentProperties, targets);
+        var slides = document.Slides;
+        // Set here rather than left to Pages, so the info file has it when no slide is rendered.
+        conversion.PageCount = slides.Count;
+        if (conversion.IncludeImages)
+        {
+            document.PresentationRenderer = new PresentationRenderer();
+            foreach (var number in conversion.Pages(slides.Count))
+            {
+                var image = slides[number - 1].ConvertToImage(ExportImageFormat.Png);
+                conversion.AddPage(number, image);
+            }
+        }
+
+        return conversion.Build();
     }
 
     // The pptx snapshot is always the full presentation, regardless of PagesToInclude:
-    // PagesToInclude only trims the rendered slide png pages in GetPowerPointStreams.
+    // PagesToInclude only trims the rendered slide png pages in ConvertPowerPoint.
     static Target BuildPptxTarget(IPresentation document)
     {
         using var source = new MemoryStream();
         document.Save(source);
         var resultStream = DeterministicPackage.Convert(source);
 
-        return new("pptx", resultStream, performConversion: false)
-        {
-            BypassComparersForSubsequentOnDifference = true
-        };
-    }
-
-    static IEnumerable<Target> GetPowerPointStreams(string? name, IPresentation document, IReadOnlyDictionary<string, object> settings)
-    {
-        if (!outputs.HasFlag(SyncfusionOutputs.Png))
-        {
-            yield break;
-        }
-
-        var renderer = new PresentationRenderer();
-
-        document.PresentationRenderer = renderer;
-        var slides = document.Slides;
-        var pagesToInclude = settings.GetPagesToInclude(slides.Count);
-        for (var index = 0; index < pagesToInclude; index++)
-        {
-            var slide = slides[index];
-            var image = slide.ConvertToImage(ExportImageFormat.Png);
-            yield return new("png", image, name);
-        }
+        return new("pptx", resultStream);
     }
 }

@@ -29,6 +29,36 @@ public class Samples
 
     #endregion
 
+    // A document object, rather than a file or a stream, goes through the typed converter. The pdf
+    // it gives back as the source must not then be converted again by the stream converter for pdf.
+    [Test]
+    public async Task VerifyPdfDocument()
+    {
+        using var document = new PdfLoadedDocument(File.ReadAllBytes("sample.pdf"));
+        await Verify(document)
+            .ExcludeDerivedTargets("png");
+    }
+
+    #region PageTextPerPage
+
+    [Test]
+    public Task PageTextPerPage() =>
+        VerifyFile("sample.pdf")
+            .PageText(PageTextPlacement.PerPage)
+            .ExcludeDerivedTargets("png");
+
+    #endregion
+
+    #region PagesToInclude
+
+    [Test]
+    public Task PagesToInclude() =>
+        VerifyFile("sample.pdf")
+            .PagesToInclude(1)
+            .ExcludeDerivedTargets("png");
+
+    #endregion
+
 #if DEBUG
 
     #region VerifyPowerPoint
@@ -91,6 +121,15 @@ public class Samples
 
     #endregion
 
+    // No csv is written for a sheet. The xlsx is excluded as well so that no workbook is saved
+    // here: the trial watermark Syncfusion adds on save is numbered per process (TextBox 1, 2 ...),
+    // so another save would change the xlsx snapshot of every test that runs after this one.
+    [Test]
+    public Task ExcludeCsv() =>
+        VerifyFile("sample.xlsx")
+            .ExcludeTargets("xlsx")
+            .ExcludeDerivedTargets("csv");
+
     #region VerifyWord
 
     [Test]
@@ -119,4 +158,21 @@ public class Samples
             .ExcludeTargets("docx");
 
     #endregion
+
+    // The text of a docx is read as a whole, not by page, so PerPage puts it in a single file.
+    [Test]
+    public Task WordTextPerPage() =>
+        VerifyFile("sample.docx")
+            .PageText(PageTextPlacement.PerPage)
+            .ExcludeTargets("docx")
+            .ExcludeDerivedTargets("png");
+
+    // Every page of a docx is rendered at once, and those PagesToInclude leaves out are dropped.
+    // The second page, since it is the small one: all it holds is the end of the trial watermark.
+    [Test]
+    public Task WordPagesToInclude() =>
+        VerifyFile("sample.docx")
+            .PagesToInclude(_ => _ == 2)
+            .PageText(PageTextPlacement.None)
+            .ExcludeTargets("docx");
 }

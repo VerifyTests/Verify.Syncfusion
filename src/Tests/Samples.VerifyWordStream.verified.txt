@@ -1,4 +1,17 @@
-﻿Created with a trial version of Syncfusion Word library
+﻿{
+  Document: {
+    LastAuthor: Simon Cropp,
+    Company: ,
+    LinesCount: 9,
+    ParagraphCount: 10,
+    WordCount: 178,
+    ApplicationName: Microsoft Office Word,
+    CreateDate: DateTime_1,
+    RevisionNumber: 3
+  },
+  PageCount: 2,
+  Text:
+Created with a trial version of Syncfusion Word library
 
 Created with a trial version of Syncfusion Word library or registered the wrong key in your application. Click here to obtain the valid key.
 Lorem ipsum 
@@ -15,3 +28,4 @@ Maecenas mauris lectus, lobortis et purus mattis, blandit dictum tellus.
 * Maecenas tincidunt est efficitur ligula euismod, sit amet ornare est vulputate.
 
 Created with a trial version of Syncfusion Word library or registered the wrong key in your application. Click here to obtain the valid key.
+}

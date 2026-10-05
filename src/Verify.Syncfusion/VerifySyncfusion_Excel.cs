@@ -5,7 +5,7 @@ namespace VerifyTests;
 
 public static partial class VerifySyncfusion
 {
-    static ConversionResult ConvertExcel(string? targetName, Stream stream, IReadOnlyDictionary<string, object> settings)
+    static ConversionResult ConvertExcel(Stream stream, IReadOnlyDictionary<string, object> settings)
     {
         var engine = new ExcelEngine
         {
@@ -15,13 +15,37 @@ public static partial class VerifySyncfusion
             }
         };
         var workbook = engine.Excel.Workbooks.Open(stream);
-        return ConvertExcel(targetName, workbook, settings);
+        return ConvertExcel(workbook, settings);
     }
 
-    static ConversionResult ConvertExcel(string? targetName, IWorkbook book, IReadOnlyDictionary<string, object> settings)
+    // A workbook has no pages, so this says which target is the workbook and which were derived
+    // from it directly, rather than through PagedConversion.
+    static ConversionResult ConvertExcel(IWorkbook book, IReadOnlyDictionary<string, object> settings)
     {
+        if (book.Version == ExcelVersion.Excel97to2003)
+        {
+            throw new("Excel97to2003 not supported");
+        }
+
         var info = GetInfo(book);
-        return new(info, GetExcelStreams(targetName, book, settings).ToList());
+
+        Target? source = null;
+        // Building the deterministic xlsx is expensive, so skip it when the xlsx target is excluded.
+        if (!settings.IsTargetExcluded("xlsx"))
+        {
+            source = BuildXlsxTarget(book);
+        }
+
+        List<Target> sheets = [];
+        if (!settings.IsDerivedTargetExcluded("csv"))
+        {
+            foreach (var sheet in book.Worksheets)
+            {
+                sheets.Add(GetSheetTarget(sheet));
+            }
+        }
+
+        return new(info, source, sheets);
     }
 
     static object GetInfo(IWorkbook book) =>
@@ -46,31 +70,6 @@ public static partial class VerifySyncfusion
             book.StandardFontSize,
         };
 
-    static List<Target> GetExcelStreams(string? targetName, IWorkbook book, IReadOnlyDictionary<string, object> settings)
-    {
-        if (book.Version == ExcelVersion.Excel97to2003)
-        {
-            throw new("Excel97to2003 not supported");
-        }
-
-        List<Target> targets = [];
-        // Building the deterministic xlsx is expensive, so skip it when the xlsx target is excluded.
-        if (!settings.IsTargetExcluded("xlsx"))
-        {
-            targets.Add(BuildXlsxTarget(book));
-        }
-
-        if (outputs.HasFlag(SyncfusionOutputs.Csv))
-        {
-            foreach (var sheet in book.Worksheets)
-            {
-                targets.Add(GetSheetStreams(targetName, sheet));
-            }
-        }
-
-        return targets;
-    }
-
     static Target BuildXlsxTarget(IWorkbook book)
     {
         using var sourceStream = new MemoryStream();
@@ -79,27 +78,16 @@ public static partial class VerifySyncfusion
                                          _.EndsWith(".xml", StringComparison.Ordinal));
         var resultStream = DeterministicPackage.Convert(sourceStream);
 
-        return new("xlsx", resultStream, performConversion: false)
-        {
-            BypassComparersForSubsequentOnDifference = true
-        };
+        return new("xlsx", resultStream);
     }
 
-    static Target GetSheetStreams(string? targetName, IWorksheet sheet)
+    // Named by the sheet, always, so that a second sheet adds a file rather than renaming the first.
+    static Target GetSheetTarget(IWorksheet sheet)
     {
-        string targetAndSheet;
-        if (targetName == null)
-        {
-            targetAndSheet = sheet.Name;
-        }
-        else
-        {
-            targetAndSheet = $"{targetName}-{sheet.Name}";
-        }
         using var stream = new MemoryStream();
         sheet.SaveAs(stream, ", ", Encoding.UTF8);
         var stringData = ReadNonEmptyLines(stream);
-        return new("csv", stringData, targetAndSheet);
+        return new("csv", stringData, sheet.Name);
     }
 
     static string ReadNonEmptyLines(MemoryStream stream)

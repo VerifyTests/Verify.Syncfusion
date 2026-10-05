@@ -1,4 +1,21 @@
-﻿ A Simple PDF File 
+﻿{
+  Document: {
+    Author: ,
+    CreationDate: DateTime_1,
+    Creator: RAD PDF,
+    CustomMetadata: [],
+    Keywords: ,
+    ModificationDate: DateTime_2,
+    Producer: RAD PDF 3.9.0.0 - http://www.radpdf.com,
+    Subject: ,
+    Title: 
+  },
+  PageCount: 2,
+  Pages: [
+    {
+      Number: 1,
+      Text:
+ A Simple PDF File 
  This is a small demonstration .pdf file - 
  just for use in the Virtual Mechanics tutorials. More text. And more 
  text. And more text. And more text. And more text. 
@@ -25,3 +42,7 @@ key.
 
 Created with a trial version of Syncfusion PDF library.
 
+
+    }
+  ]
+}
