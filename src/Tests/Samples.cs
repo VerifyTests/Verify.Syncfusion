@@ -130,6 +130,55 @@ public class Samples
             .ExcludeTargets("xlsx")
             .ExcludeDerivedTargets("csv");
 
+    // A hidden sheet is verified as any other, so it has a csv. What says it is hidden is
+    // HiddenSheets in the info file. The xlsx is excluded for the reason given above.
+    [Test]
+    public async Task HiddenSheet()
+    {
+        using var engine = new Syncfusion.XlsIO.ExcelEngine();
+        var book = engine.Excel.Workbooks.Create(2);
+        book.Version = Syncfusion.XlsIO.ExcelVersion.Xlsx;
+        book.Worksheets[0].Range["A1"].Text = "First sheet";
+        book.Worksheets[1].Range["A1"].Text = "Hidden sheet";
+        book.Worksheets[1].Visibility = Syncfusion.XlsIO.WorksheetVisibility.Hidden;
+
+        await Verify(book)
+            .ExcludeTargets("xlsx");
+    }
+
+    // A hidden sheet is counted as any other, so here it is the first page: it is the one that is
+    // drawn and exported, and the sheet that is shown is left out.
+    [Test]
+    public async Task HiddenSheetIsCountedByPagesToInclude()
+    {
+        using var engine = new Syncfusion.XlsIO.ExcelEngine();
+        var book = engine.Excel.Workbooks.Create(2);
+        book.Version = Syncfusion.XlsIO.ExcelVersion.Xlsx;
+        book.Worksheets[0].Range["A1"].Text = "Hidden sheet";
+        book.Worksheets[1].Range["A1"].Text = "Second sheet";
+        book.Worksheets[1].Activate();
+        book.Worksheets[0].Visibility = Syncfusion.XlsIO.WorksheetVisibility.Hidden;
+
+        await Verify(book)
+            .PagesToInclude(1)
+            .ExcludeTargets("xlsx");
+    }
+
+    // A sheet that only code can unhide is verified as one Excel can
+    [Test]
+    public async Task VeryHiddenSheet()
+    {
+        using var engine = new Syncfusion.XlsIO.ExcelEngine();
+        var book = engine.Excel.Workbooks.Create(2);
+        book.Version = Syncfusion.XlsIO.ExcelVersion.Xlsx;
+        book.Worksheets[0].Range["A1"].Text = "First sheet";
+        book.Worksheets[1].Range["A1"].Text = "Very hidden sheet";
+        book.Worksheets[1].Visibility = Syncfusion.XlsIO.WorksheetVisibility.StrongHidden;
+
+        await Verify(book)
+            .ExcludeTargets("xlsx");
+    }
+
     #region VerifyWord
 
     [Test]
@@ -159,7 +208,8 @@ public class Samples
 
     #endregion
 
-    // The text of a docx is read as a whole, not by page, so PerPage puts it in a single file.
+    // The text of a docx is read page by page, so PerPage puts that of each page in a file of its
+    // own. The second page has none worth a file once the trial watermark is all it holds.
     [Test]
     public Task WordTextPerPage() =>
         VerifyFile("sample.docx")

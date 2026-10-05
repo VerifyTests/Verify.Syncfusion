@@ -18,8 +18,8 @@ public static partial class VerifySyncfusion
         return ConvertExcel(workbook, settings);
     }
 
-    // A workbook has no pages, so this says which target is the workbook and which were derived
-    // from it directly, rather than through PagedConversion.
+    // A sheet is a page, hidden or not: PagedConversion names its png, and says which sheets and
+    // which outputs the verification wants, so what is left out is neither drawn nor exported.
     static ConversionResult ConvertExcel(IWorkbook book, IReadOnlyDictionary<string, object> settings)
     {
         if (book.Version == ExcelVersion.Excel97to2003)
@@ -27,25 +27,89 @@ public static partial class VerifySyncfusion
             throw new("Excel97to2003 not supported");
         }
 
-        var info = GetInfo(book);
+        var conversion = new PagedConversion(settings)
+        {
+            Info = GetInfo(book)
+        };
 
-        Target? source = null;
+        var includeCsv = !settings.IsDerivedTargetExcluded("csv");
+        var includeImages = conversion.IncludeImages;
+        if (includeImages)
+        {
+            // A workbook that was passed in may come from an engine that was not given one
+            book.Application.XlsIORenderer ??= new XlsIORenderer();
+        }
+
+        var sheets = book.Worksheets;
+        foreach (var number in conversion.Pages(sheets.Count))
+        {
+            var sheet = sheets[number - 1];
+
+            // Not the text of the page, which would put it in the info file: a csv is a file of
+            // its own, named by the sheet.
+            if (includeCsv)
+            {
+                conversion.AddDerived(GetSheetTarget(sheet));
+            }
+
+            Stream? image = null;
+            if (includeImages)
+            {
+                image = RenderSheet(sheet);
+            }
+
+            conversion.AddPage(number, image);
+        }
+
+        // Saved last, once the sheets are read and drawn. An unlicensed save adds a sheet with its
+        // evaluation warning to the workbook, which is then in the xlsx and is not a page of it.
         // Building the deterministic xlsx is expensive, so skip it when the xlsx target is excluded.
         if (!settings.IsTargetExcluded("xlsx"))
         {
-            source = BuildXlsxTarget(book);
+            conversion.Source(BuildXlsxTarget(book));
         }
 
-        List<Target> sheets = [];
-        if (!settings.IsDerivedTargetExcluded("csv"))
+        return conversion.Build();
+    }
+
+    // The sheet as the one image, from its first cell to the last that holds a value. Not its used
+    // range, which takes in every cell that is only formatted: a column formatted to its end is a
+    // thousand rows of nothing. Null for a sheet with no values, which has nothing to draw.
+    static MemoryStream? RenderSheet(IWorksheet sheet)
+    {
+        var lastRow = 0;
+        var lastColumn = 0;
+        foreach (var cell in sheet.UsedCells)
         {
-            foreach (var sheet in book.Worksheets)
+            if (cell.IsBlank)
             {
-                sheets.Add(GetSheetTarget(sheet));
+                continue;
             }
+
+            lastRow = Math.Max(lastRow, cell.LastRow);
+            lastColumn = Math.Max(lastColumn, cell.LastColumn);
         }
 
-        return new(info, source, sheets);
+        if (lastRow == 0)
+        {
+            return null;
+        }
+
+        var stream = new MemoryStream();
+        sheet.ConvertToImage(
+            1,
+            1,
+            lastRow,
+            lastColumn,
+            new ExportImageOptions
+            {
+                ImageFormat = ExportImageFormat.Png,
+                // Best is three times the size each way, which for a sheet is an image too large
+                // to review
+                ScalingMode = ScalingMode.Normal
+            },
+            stream);
+        return stream;
     }
 
     static object GetInfo(IWorkbook book) =>
@@ -68,7 +132,24 @@ public static partial class VerifySyncfusion
             book.ReadOnlyRecommended,
             book.StandardFont,
             book.StandardFontSize,
+            HiddenSheets = HiddenSheets(book),
         };
+
+    // A hidden sheet has a csv as any other, so this is what says which are hidden. Null, so left
+    // out, for a workbook with none.
+    static List<string>? HiddenSheets(IWorkbook book)
+    {
+        var hidden = book.Worksheets
+            .Where(_ => _.Visibility != WorksheetVisibility.Visible)
+            .Select(_ => _.Name)
+            .ToList();
+        if (hidden.Count == 0)
+        {
+            return null;
+        }
+
+        return hidden;
+    }
 
     static Target BuildXlsxTarget(IWorkbook book)
     {

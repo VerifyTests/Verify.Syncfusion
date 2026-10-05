@@ -56,9 +56,9 @@ public static void Initialize() =>
 Verifying a document produces:
 
  * The document itself, as a `.verified.pdf`, `.verified.docx`, `.verified.xlsx` or `.verified.pptx`. It can be omitted with [`ExcludeTargets`](#exclude-the-document).
- * An info file, `.verified.txt`, with the properties of the document. For a pdf, docx and pptx it also has the page count, and the extracted text: of each page of a pdf or a docx, and of each slide of a pptx.
- * For a pdf, docx and pptx: a png of each page or slide, as `#page_0001.verified.png`, `#page_0002.verified.png`, etc.
- * For an xlsx: a csv of each sheet, named by the sheet, as `#Sheet1.verified.csv`.
+ * An info file, `.verified.txt`, with the properties of the document. For a pdf, docx and pptx it also has the page count, and the extracted text: of each page of a pdf or a docx, and of each slide of a pptx. For an xlsx the page count is the number of its sheets.
+ * A png of each page, slide or sheet, as `#page_0001.verified.png`, `#page_0002.verified.png`, etc. A sheet is drawn from its first cell to the last that holds a value, and a sheet with no values has no png.
+ * For an xlsx: a csv of each sheet, named by the sheet, as `#Sheet1.verified.csv`. A hidden sheet is a page as any other, with a png and a csv, and is named under `HiddenSheets` in the info file. `PagesToInclude` leaves out the csv of a sheet with its png.
 
 The page files are named, and the text placed, by Verify's [paged documents](https://github.com/VerifyTests/Verify/blob/main/docs/paged-documents.md) support, which every Verify plugin that splits a document into pages shares. So do the settings that [choose what is verified](#choosing-what-is-verified).
 
@@ -280,24 +280,27 @@ public Task VerifyExcelStream()
 <a id='snippet-Samples.VerifyExcel.verified.txt'></a>
 ```txt
 {
-  CodeName: ThisWorkbook,
-  Date1904: false,
-  HasMacros: false,
-  DisableMacrosStart: false,
-  DetectDateTimeInValue: true,
-  ArgumentsSeparator: ,,
-  DisplayWorkbookTabs: true,
-  IsRightToLeft: false,
-  IsWindowProtection: false,
-  Version: Xlsx,
-  IsCellProtection: false,
-  ReadOnly: false,
-  ReadOnlyRecommended: false,
-  StandardFont: Arial,
-  StandardFontSize: 10.0
+  Document: {
+    CodeName: ThisWorkbook,
+    Date1904: false,
+    HasMacros: false,
+    DisableMacrosStart: false,
+    DetectDateTimeInValue: true,
+    ArgumentsSeparator: ,,
+    DisplayWorkbookTabs: true,
+    IsRightToLeft: false,
+    IsWindowProtection: false,
+    Version: Xlsx,
+    IsCellProtection: false,
+    ReadOnly: false,
+    ReadOnlyRecommended: false,
+    StandardFont: Arial,
+    StandardFontSize: 10.0
+  },
+  PageCount: 1
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyExcel.verified.txt#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyExcel.verified.txt#L1-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 <!-- snippet: Samples.VerifyExcel#Sheet1.verified.csv -->
@@ -350,10 +353,9 @@ Created with a trial version of Syncfusion Excel library or registered the wrong
 7, Etta, Hurn, Female, Great Britain, 56, 3598, 3605, , , , , , , , , , , , , , , , 
 8, Earlean, Melgar, Female, United States, 27, 2456, 2464, , , , , , , , , , , , , , , , 
 9, Vincenza, Weiland, Female, United States, 40, 6548, 6557, , , , , , , , , , , , , , , , 
-Created with a trial version of Syncfusion Excel library or registered the wrong key in your application. Click here to obtain the valid key., , , , , , , , , , , , , , , , , , , , , , , 
 Created with a trial version of Syncfusion Excel library or registered the wrong key in your application. Go to www.syncfusion.com/account/claim-license-key to obtain the valid key.
 ```
-<sup><a href='/src/Tests/Samples.VerifyExcel%23Sheet1.verified.csv#L1-L49' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel#Sheet1.verified.csv' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyExcel%23Sheet1.verified.csv#L1-L48' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyExcel#Sheet1.verified.csv' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -370,7 +372,7 @@ When verifying a Word file or stream, both the textual content of the Word file 
 public Task VerifyWord() =>
     VerifyFile("sample.docx");
 ```
-<sup><a href='/src/Tests/Samples.cs#L133-L139' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyWord' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L182-L188' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyWord' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -386,7 +388,7 @@ public Task VerifyWordStream()
     return Verify(stream, "docx");
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L141-L150' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyWordStream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L190-L199' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyWordStream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -638,7 +640,9 @@ The files a page is written to are named by its number, and the text moves into 
 | `#00.verified.png`, `#01.verified.png`, pages 1 and 2 | `#page_0001.verified.png`, `#page_0002.verified.png` |
 | `.verified.png`, the page of a document with one page verified | `#page_0001.verified.png` |
 
-The documents (`.verified.pdf`, `.verified.docx`, `.verified.xlsx`, `.verified.pptx`) keep their names and their content, as does every file of an xlsx.
+The documents (`.verified.pdf`, `.verified.docx`, `.verified.xlsx`, `.verified.pptx`) keep their names and their content. The csv of each sheet of an xlsx keeps its name, and its info file is now under `Document` with a `PageCount`, as that of every other document is.
+
+Without a license key the save of a workbook adds a sheet named `Evaluation Warning` and a line of warning to the first row of the others. A workbook is now saved after its sheets are read and drawn, so neither is in the csv files any more: there is no `#Evaluation Warning.verified.csv`, and the csv of a sheet starts with its own first row. Both are still in the `.verified.xlsx`.
 
 That is for a document a test verifies directly. Where the document is itself a named target of another converter, an attachment for example, Verify now names the document and what is derived from it relative to that name: the document is `#Attachment1`, a page is `#Attachment1.page_0001`, and a sheet is `#Attachment1.Sheet1` where it was `#Attachment1-Sheet1`.
 

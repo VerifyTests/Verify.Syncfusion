@@ -7,14 +7,19 @@
     DetectDateTimeInValue: true,
     ArgumentsSeparator: ,,
     DisplayWorkbookTabs: true,
+    DisplayedTab: 1,
+    ActiveSheetIndex: 1,
     IsRightToLeft: false,
     IsWindowProtection: false,
     Version: Xlsx,
     IsCellProtection: false,
     ReadOnly: false,
     ReadOnlyRecommended: false,
-    StandardFont: Arial,
-    StandardFontSize: 10.0
+    StandardFont: Tahoma,
+    StandardFontSize: 10.0,
+    HiddenSheets: [
+      Sheet1
+    ]
   },
-  PageCount: 1
+  PageCount: 2
 }

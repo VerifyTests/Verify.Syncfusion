@@ -38,9 +38,13 @@ public static partial class VerifySyncfusion
             AddPageTexts(conversion, document);
         }
 
-        // DocIO renders every page at once, so AddImages drops the pages PagesToInclude leaves out
-        // once they are rendered. A page with text as well is added twice, once for each. They are
-        // the one page to PagedConversion, which goes by the number.
+        // Every page is rendered at once, and AddImages drops the pages PagesToInclude leaves out.
+        // DocIO can render a range of pages, but only by index, which takes knowing how many there
+        // are before any is drawn. The only count to hand is that of the pdf the text is read
+        // from, and it is not the count of the images: without a license each conversion adds
+        // its evaluation warning to the document, so the one that runs second can have a page more.
+        // A page with text as well is added twice, once for each. They are the one page to
+        // PagedConversion, which goes by the number.
         if (conversion.IncludeImages)
         {
             using var render = new DocIORenderer();
