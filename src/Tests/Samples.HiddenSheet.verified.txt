@@ -13,8 +13,11 @@
     IsCellProtection: false,
     ReadOnly: false,
     ReadOnlyRecommended: false,
-    StandardFont: Arial,
-    StandardFontSize: 10.0
+    StandardFont: Tahoma,
+    StandardFontSize: 10.0,
+    HiddenSheets: [
+      Sheet2
+    ]
   },
-  PageCount: 1
+  PageCount: 2
 }

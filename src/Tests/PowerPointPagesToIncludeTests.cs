@@ -3,11 +3,11 @@
 [TestFixture]
 public class PowerPointPagesToIncludeTests
 {
-    // PagesToInclude trims only the rendered slide pngs. The pptx snapshot stays the full
-    // presentation, and the info's SlideCount (from BuiltInDocumentProperties) still reports all
-    // three slides, so including a single slide remains unambiguous.
+    // PagesToInclude trims the png and the text of the slides. The pptx snapshot stays the full
+    // presentation, and the info's PageCount, like the SlideCount from BuiltInDocumentProperties,
+    // still reports all three slides, so including a single slide remains unambiguous.
     [Test]
-    public Task PagesToIncludeTrimsRenderedSlidesOnly()
+    public Task PagesToIncludeTrimsSlides()
     {
         var stream = new MemoryStream(File.ReadAllBytes(ProjectFiles.sample_pptx));
         return Verify(stream, "pptx")

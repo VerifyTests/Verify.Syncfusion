@@ -21,11 +21,11 @@
     <PackageVersion Include="Syncfusion.PresentationRenderer.Net.Core" Version="35.1.37" />
     <PackageVersion Include="Syncfusion.XlsIO.Net.Core" Version="35.1.37" />
     <PackageVersion Include="Syncfusion.XlsIORenderer.Net.Core" Version="35.1.37" />
-    <PackageVersion Include="Verify" Version="33.2.0" />
-    <PackageVersion Include="Verify.NUnit" Version="33.2.0" />
+    <PackageVersion Include="Verify" Version="33.3.0" />
+    <PackageVersion Include="Verify.NUnit" Version="33.3.0" />
     <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="10.0.12" />
     <PackageVersion Include="Argon" Version="0.37.0" />
-    <PackageVersion Include="DiffEngine" Version="20.6.0" />
+    <PackageVersion Include="DiffEngine" Version="20.7.0" />
     <PackageVersion Include="EmptyFiles" Version="8.20.0" />
     <PackageVersion Include="SimpleInfoName" Version="3.2.0" />
     <!-- CVE -->

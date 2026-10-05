@@ -1,29 +1,33 @@
 ﻿using DeterministicPdf;
+using Syncfusion.EJ2.PdfViewer;
 
 namespace VerifyTests;
 
 public static partial class VerifySyncfusion
 {
-    static ConversionResult ConvertPdf(string? name, Stream stream, IReadOnlyDictionary<string, object> settings)
+    static ConversionResult ConvertPdf(Stream stream, IReadOnlyDictionary<string, object> settings)
     {
         using var document = new PdfLoadedDocument(stream);
 
-        return ConvertPdf(name, document, settings);
+        return ConvertPdf(document, settings);
     }
 
-    static ConversionResult ConvertPdf(string? name, PdfDocument document, IReadOnlyDictionary<string, object> settings)
+    static ConversionResult ConvertPdf(PdfDocument document, IReadOnlyDictionary<string, object> settings)
     {
-        var info = GetInfo(document, document.DocumentInformation);
-        return new(info, GetPdfStreams(name, document, settings).ToList());
+        var info = GetInfo(document.DocumentInformation);
+        var pages = document.Pages.Cast<PdfPageBase>().ToList();
+        return ConvertPdf(document, info, pages, settings);
     }
 
-    static ConversionResult ConvertPdf(string? name, PdfLoadedDocument document, IReadOnlyDictionary<string, object> settings)
+    static ConversionResult ConvertPdf(PdfLoadedDocument document, IReadOnlyDictionary<string, object> settings)
     {
-        var info = GetInfo(document, document.DocumentInformation);
-        return new(info, GetPdfStreams(name, document, settings).ToList());
+        var info = GetInfo(document.DocumentInformation);
+        var pages = document.Pages.Cast<PdfPageBase>().ToList();
+        return ConvertPdf(document, info, pages, settings);
     }
 
-    static object GetInfo(PdfDocumentBase document, PdfDocumentInformation info)
+    // The page count is not here: PagedConversion writes it to the info file.
+    static object GetInfo(PdfDocumentInformation info)
     {
         if (info.Title == "Syncfusion" ||
             info.Subject == "Syncfusion" ||
@@ -34,7 +38,6 @@ public static partial class VerifySyncfusion
 
         return new
         {
-            document.PageCount,
             info.Author,
             info.CreationDate,
             info.Creator,
@@ -48,73 +51,68 @@ public static partial class VerifySyncfusion
         };
     }
 
-    static IEnumerable<Target> GetPdfStreams(string? name, PdfDocument document, IReadOnlyDictionary<string, object> settings)
-    {
-        var pages = document.Pages.Cast<PdfPageBase>().ToList();
-        return GetPdfStreams(name, document, settings, pages);
-    }
-
-    static IEnumerable<Target> GetPdfStreams(string? name, PdfLoadedDocument document, IReadOnlyDictionary<string, object> settings)
-    {
-        var pages = document.Pages.Cast<PdfPageBase>().ToList();
-        return GetPdfStreams(name, document, settings, pages);
-    }
-
-    static IEnumerable<Target> GetPdfStreams(
-        string? name,
+    static ConversionResult ConvertPdf(
         PdfDocumentBase document,
-        IReadOnlyDictionary<string, object> settings,
-        List<PdfPageBase> pages)
+        object info,
+        List<PdfPageBase> pages,
+        IReadOnlyDictionary<string, object> settings)
     {
-        var pagesToInclude = settings.GetPagesToInclude(pages.Count);
+        // Names the pages, places their text, and says which pages and which of their outputs the
+        // verification wants, so a page that is not wanted is neither rendered nor read.
+        var conversion = new PagedConversion(settings)
+        {
+            Info = info
+        };
+
         var pdfStream = new MemoryStream();
         document.Save(pdfStream);
         pdfStream.Position = 0;
 
         // The document is already saved here to feed the renderer, so the pdf snapshot costs only the
         // neutralizing pass. It is always the full document, regardless of PagesToInclude, which
-        // trims the rendered pages below. Mirrors the xlsx/docx/pptx targets in the sibling formats.
+        // trims the pages below. Mirrors the xlsx/docx/pptx targets in the sibling formats.
         if (!settings.IsTargetExcluded("pdf"))
         {
-            yield return new("pdf", PdfNormalizer.Normalize(pdfStream), name, performConversion: false)
-            {
-                BypassComparersForSubsequentOnDifference = true
-            };
+            conversion.Source(new("pdf", PdfNormalizer.Normalize(pdfStream)));
             pdfStream.Position = 0;
         }
 
-        var includeText = outputs.HasFlag(SyncfusionOutputs.Text);
-        var includePng = outputs.HasFlag(SyncfusionOutputs.Png);
-        if (!includeText && !includePng)
+        var includeText = conversion.IncludeText;
+        PdfRenderer? pngDevice = null;
+        if (conversion.IncludeImages)
         {
-            yield break;
-        }
-
-        var pngDevice = settings.GetPdfPngDevice(document);
-        if (includePng)
-        {
+            pngDevice = settings.GetPdfPngDevice(document);
             pngDevice.Load(pdfStream);
         }
 
-        for (var index = 0; index < pagesToInclude; index++)
+        foreach (var number in conversion.Pages(pages.Count))
         {
+            var index = number - 1;
+
+            string? text = null;
             if (includeText)
             {
-                var page = pages[index];
-                var text = page.ExtractText();
-                yield return new("txt", text, name);
+                text = pages[index].ExtractText();
             }
 
-            if (!includePng)
+            Stream? png = null;
+            if (pngDevice is not null)
             {
-                continue;
+                png = RenderPage(pngDevice, index);
             }
 
-            var pngStream = new MemoryStream();
-            var image = pngDevice.ExportAsImage(index);
-            var skData = image.Encode(SKEncodedImageFormat.Png,100);
-            skData.SaveTo(pngStream);
-            yield return new("png", pngStream, name);
+            conversion.AddPage(number, png, text);
         }
+
+        return conversion.Build();
+    }
+
+    static MemoryStream RenderPage(PdfRenderer pngDevice, int index)
+    {
+        var pngStream = new MemoryStream();
+        var image = pngDevice.ExportAsImage(index);
+        var skData = image.Encode(SKEncodedImageFormat.Png,100);
+        skData.SaveTo(pngStream);
+        return pngStream;
     }
 }
