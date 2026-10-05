@@ -31,25 +31,6 @@ Maecenas mauris lectus, lobortis et purus mattis, blandit dictum tellus. Maecena
 Created with a trial version of Syncfusion PowerPoint library or registered the wrong key in your application. Click here to obtain the valid key.
 Created with a trial version of Syncfusion PowerPoint library or registered the wrong key in your application. Go to "www.syncfusion.com/account/claim-license-key" to obtain the valid key.
 
-    },
-    {
-      Number: 2,
-      Text:
-Chart
-
-    },
-    {
-      Number: 3,
-      Text:
-Table
-Column 1
-Column 2
-Column 3
-Column 4
-Column 5
-Created with a trial version of Syncfusion PowerPoint library or registered the wrong key in your application. Click here to obtain the valid key.
-Created with a trial version of Syncfusion PowerPoint library or registered the wrong key in your application. Go to "www.syncfusion.com/account/claim-license-key" to obtain the valid key.
-
     }
   ]
 }

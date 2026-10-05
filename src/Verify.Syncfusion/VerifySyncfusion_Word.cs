@@ -30,16 +30,17 @@ public static partial class VerifySyncfusion
             conversion.Source(BuildDocxTarget(document));
         }
 
-        // DocIO reads a document as one text, and cannot say which page a part of it is on.
+        // DocIO reads a document as one text, and cannot say which page a part of it is on. Laid out
+        // as a pdf it has pages, each with its text, so PagesToInclude limits the text as it does
+        // the images. That also gives the page count when no page is rendered.
         if (conversion.IncludeText)
         {
-            using var stream = new MemoryStream();
-            document.SaveTxt(stream, Encoding.UTF8);
-            conversion.Text(stream.ReadAsString());
+            AddPageTexts(conversion, document);
         }
 
         // DocIO renders every page at once, so AddImages drops the pages PagesToInclude leaves out
-        // once they are rendered. It also records the page count, which only rendering gives.
+        // once they are rendered. A page with text as well is added twice, once for each. They are
+        // the one page to PagedConversion, which goes by the number.
         if (conversion.IncludeImages)
         {
             using var render = new DocIORenderer();
@@ -49,6 +50,26 @@ public static partial class VerifySyncfusion
         // Read once the document has been saved and rendered, as it was before PagedConversion.
         conversion.Info = GetInfo(document);
         return conversion.Build();
+    }
+
+    static void AddPageTexts(PagedConversion conversion, WordDocument document)
+    {
+        using var pdfStream = new MemoryStream();
+        using (var renderer = new DocIORenderer())
+        using (var pdf = renderer.ConvertToPDF(document))
+        {
+            pdf.Save(pdfStream);
+        }
+
+        pdfStream.Position = 0;
+        using var loaded = new PdfLoadedDocument(pdfStream);
+        var pages = loaded.Pages;
+        foreach (var number in conversion.Pages(pages.Count))
+        {
+            // By layout: read in the order it is written, the text of a rendered document is a
+            // line for every run of it.
+            conversion.AddPage(number, text: pages[number - 1].ExtractText(true));
+        }
     }
 
     static Target BuildDocxTarget(WordDocument document)

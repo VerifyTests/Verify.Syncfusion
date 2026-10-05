@@ -56,7 +56,7 @@ public static void Initialize() =>
 Verifying a document produces:
 
  * The document itself, as a `.verified.pdf`, `.verified.docx`, `.verified.xlsx` or `.verified.pptx`. It can be omitted with [`ExcludeTargets`](#exclude-the-document).
- * An info file, `.verified.txt`, with the properties of the document. For a pdf, docx and pptx it also has the page count, and for a pdf and docx the extracted text.
+ * An info file, `.verified.txt`, with the properties of the document. For a pdf, docx and pptx it also has the page count, and the extracted text: of each page of a pdf or a docx, and of each slide of a pptx.
  * For a pdf, docx and pptx: a png of each page or slide, as `#page_0001.verified.png`, `#page_0002.verified.png`, etc.
  * For an xlsx: a csv of each sheet, named by the sheet, as `#Sheet1.verified.csv`.
 
@@ -67,7 +67,7 @@ The page files are named, and the text placed, by Verify's [paged documents](htt
 
 What a document is split into is controlled by Verify's settings for [paged documents](https://github.com/VerifyTests/Verify/blob/main/docs/paged-documents.md). Anything left out is not produced at all (pages are not rendered, text is not extracted, sheets are not exported), so these also save work.
 
-The text of each page of a pdf is in the info file by default. `PageText` moves it to a `#page_0001.verified.txt` per page, or leaves it out with `PageTextPlacement.None`:
+The text of each page of a pdf or a docx, and of each slide of a pptx, is in the info file by default. `PageText` moves it to a `#page_0001.verified.txt` per page, or leaves it out with `PageTextPlacement.None`:
 
 <!-- snippet: PageTextPerPage -->
 <a id='snippet-PageTextPerPage'></a>
@@ -81,7 +81,7 @@ public Task PageTextPerPage() =>
 <sup><a href='/src/Tests/Samples.cs#L42-L50' title='Snippet source file'>snippet source</a> | <a href='#snippet-PageTextPerPage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-The text of a docx is read as a whole, not by page. It is `Text` in the info file by default, and a single `#text.verified.txt` under `PageTextPlacement.PerPage`.
+The text of a docx is read from the document as it is laid out, so a line of it is a line of the page, not a paragraph.
 
 `PagesToInclude` limits the pages that are rendered and read, to the first pages of a document or to those a delegate accepts. The document itself is still verified whole, and its info file still has the count of all pages:
 
@@ -392,7 +392,7 @@ public Task VerifyWordStream()
 
 #### Result
 
-The info file has the document properties under `Document`, the page count, and the text of the document:
+The info file has the document properties under `Document`, the page count, and the text of each page:
 
 <!-- snippet: Samples.VerifyWord.verified.txt -->
 <a id='snippet-Samples.VerifyWord.verified.txt'></a>
@@ -409,27 +409,60 @@ The info file has the document properties under `Document`, the page count, and 
     RevisionNumber: 3
   },
   PageCount: 2,
-  Text:
+  Pages: [
+    {
+      Number: 1,
+      Text:
 Created with a trial version of Syncfusion Word library
-
-Created with a trial version of Syncfusion Word library or registered the wrong key in your application. Click here to obtain the valid key.
-Lorem ipsum 
-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac faucibus odio. 
-
-Vestibulum neque massa, scelerisque sit amet ligula eu, congue molestie mi. Praesent ut varius sem. Nullam at porttitor arcu, nec lacinia nisi. Ut ac dolor vitae odio interdum condimentum. Vivamus dapibus sodales ex, vitae malesuada ipsum cursus convallis. Maecenas sed egestas nulla, ac condimentum orci. Mauris diam felis, vulputate ac suscipit et, iaculis non est. Curabitur semper arcu ac ligula semper, nec luctus nisl blandit. Integer lacinia ante ac libero lobortis imperdiet. Nullam mollis convallis ipsum, ac accumsan nunc vehicula vitae. Nulla eget justo in felis tristique fringilla. Morbi sit amet tortor quis risus auctor condimentum. Morbi in ullamcorper elit. Nulla iaculis tellus sit amet mauris tempus fringilla.
+Created with a trial version of Syncfusion Word library or registered the wrong key in your 
+application. Click here to obtain the valid key.
+Lorem ipsum
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Nunc ac faucibus odio.
+Vestibulum neque massa, scelerisque sit amet ligula eu, congue molestie mi. Praesent ut
+varius sem. Nullam at porttitor arcu, nec lacinia nisi. Ut ac dolor vitae odio interdum
+condimentum. Vivamus dapibus sodales ex, vitae malesuada ipsum cursus
+convallis. Maecenas sed egestas nulla, ac condimentum orci. Mauris diam felis,
+vulputate ac suscipit et, iaculis non est. Curabitur semper arcu ac ligula semper, nec
+luctus nisl blandit. Integer lacinia ante ac libero lobortis imperdiet. Nullam mollis convallis
+ipsum, ac accumsan nunc vehicula vitae. Nulla eget justo in felis tristique fringilla. Morbi
+sit amet tortor quis risus auctor condimentum. Morbi in ullamcorper elit. Nulla iaculis tellus
+sit amet mauris tempus fringilla.
 Maecenas mauris lectus, lobortis et purus mattis, blandit dictum tellus.
-* Maecenas non lorem quis tellus placerat varius. 
-* Nulla facilisi. 
-* Aenean congue fringilla justo ut aliquam. 
-* Mauris id ex erat. Nunc vulputate neque vitae justo facilisis, non condimentum ante sagittis. 
-* Morbi viverra semper lorem nec molestie. 
-* Maecenas tincidunt est efficitur ligula euismod, sit amet ornare est vulputate.
+Maecenas non lorem quis tellus placerat varius.
+Nulla facilisi.
+Aenean congue fringilla justo ut aliquam.
+Mauris id ex erat. Nunc vulputate neque vitae justo facilisis, non condimentum ante
+sagittis.
+Morbi viverra semper lorem nec molestie.
+Maecenas tincidunt est efficitur ligula euismod, sit amet ornare est vulputate.
 
-Created with a trial version of Syncfusion Word library or registered the wrong key in your application. Click here to obtain the valid key.
+Created with a trial version of Syncfusion Word library or registered the wrong key in your 
+
+Created with a trial version of Syncfusion PDF library or registered the wrong key
+in your application. Clickhereto obtain the valid key.
+
+Created with a trial version of Syncfusion PDF library.
+
+
+    },
+    {
+      Number: 2,
+      Text:
+Created with a trial version of Syncfusion Word library
+application. Click here to obtain the valid key.
+
+Created with a trial version of Syncfusion PDF library or registered the wrong key
+in your application. Clickhereto obtain the valid key.
+
+Created with a trial version of Syncfusion PDF library.
+
+
+    }
+  ]
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyWord.verified.txt#L1-L31' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyWord.verified.txt#L1-L64' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyWord.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 The pages of a docx are counted by rendering them, so `PageCount` is in the info file only when the pages are rendered: it is absent under `ExcludeDerivedTargets("png")`.
@@ -474,7 +507,7 @@ public Task VerifyPowerPointStream()
 
 #### Result
 
-A slide is a page. The info file has the document properties under `Document`, and the number of slides as the page count:
+A slide is a page. The info file has the document properties under `Document`, the number of slides as the page count, and the text of each slide:
 
 <!-- snippet: Samples.VerifyPowerPoint.verified.txt -->
 <a id='snippet-Samples.VerifyPowerPoint.verified.txt'></a>
@@ -501,10 +534,41 @@ A slide is a page. The info file has the document properties under `Document`, a
     LinksDirty: false,
     ApplicationName: Microsoft Office PowerPoint
   },
-  PageCount: 3
+  PageCount: 3,
+  Pages: [
+    {
+      Number: 1,
+      Text:
+Lorem ipsum
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac faucibus odio. Vestibulum neque massa, scelerisque sit amet ligula eu, congue molestie mi. Praesent ut varius sem. Nullam at porttitor arcu, nec lacinia nisi. Ut ac dolor vitae odio interdum condimentum. Vivamus dapibus sodales ex, vitae malesuada ipsum cursus convallis. Maecenas sed egestas nulla, ac condimentum orci. Mauris diam felis, vulputate ac suscipit et, iaculis non est. Curabitur semper arcu ac ligula semper, nec luctus nisl blandit. Integer lacinia ante ac libero lobortis imperdiet. Nullam mollis convallis ipsum, ac accumsan nunc vehicula vitae. Nulla eget justo in felis tristique fringilla. Morbi sit amet tortor quis risus auctor condimentum. Morbi in ullamcorper elit. Nulla iaculis tellus sit amet mauris tempus fringilla.
+Maecenas mauris lectus, lobortis et purus mattis, blandit dictum tellus. Maecenas non lorem quis tellus placerat varius. Nulla facilisi. Aenean congue fringilla justo ut aliquam. Mauris id ex erat. Nunc vulputate neque vitae justo facilisis, non condimentum ante sagittis. Morbi viverra semper lorem nec molestie. Maecenas tincidunt est efficitur ligula euismod, sit amet ornare est vulputate.
+Created with a trial version of Syncfusion PowerPoint library or registered the wrong key in your application. Click here to obtain the valid key.
+Created with a trial version of Syncfusion PowerPoint library or registered the wrong key in your application. Go to "www.syncfusion.com/account/claim-license-key" to obtain the valid key.
+
+    },
+    {
+      Number: 2,
+      Text:
+Chart
+
+    },
+    {
+      Number: 3,
+      Text:
+Table
+Column 1
+Column 2
+Column 3
+Column 4
+Column 5
+Created with a trial version of Syncfusion PowerPoint library or registered the wrong key in your application. Click here to obtain the valid key.
+Created with a trial version of Syncfusion PowerPoint library or registered the wrong key in your application. Go to "www.syncfusion.com/account/claim-license-key" to obtain the valid key.
+
+    }
+  ]
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyPowerPoint.verified.txt#L1-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPowerPoint.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPowerPoint.verified.txt#L1-L55' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPowerPoint.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [Samples.VerifyPowerPoint#page_0001.verified.png](src/Tests/Samples.VerifyPowerPoint%23page_0001.verified.png):
@@ -552,7 +616,7 @@ A change to a document is a change to several files: the document, its info file
 
 Version 4 moves to the paged document support in Verify 33.3. The settings this package had for choosing what is verified are gone, replaced by those of Verify, which every package built on that support shares.
 
-`Initialize` no longer takes a `SyncfusionOutputs`, and the enum is removed. What it turned off is turned off on `VerifierSettings` for every test, or on a single verification:
+`Initialize` no longer takes a `SyncfusionOutputs`. The enum is still there, obsolete as an error, so that code naming it is pointed here. What it turned off is turned off on `VerifierSettings` for every test, or on a single verification:
 
 | 3.x | 4.x |
 | --- | --- |
