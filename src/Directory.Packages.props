@@ -24,10 +24,10 @@
     <PackageVersion Include="Verify" Version="33.3.2-beta.1" />
     <PackageVersion Include="Verify.NUnit" Version="33.3.2-beta.1" />
     <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="10.0.12" />
-    <PackageVersion Include="Argon" Version="0.38.0" />
-    <PackageVersion Include="DiffEngine" Version="20.7.0" />
-    <PackageVersion Include="EmptyFiles" Version="8.20.0" />
-    <PackageVersion Include="SimpleInfoName" Version="3.2.0" />
+    <PackageVersion Include="Argon" Version="0.38.1" />
+    <PackageVersion Include="DiffEngine" Version="20.7.1" />
+    <PackageVersion Include="EmptyFiles" Version="8.20.1" />
+    <PackageVersion Include="SimpleInfoName" Version="3.2.1" />
     <!-- CVE -->
     <PackageVersion Include="System.Text.Json" Version="10.0.12" />
   </ItemGroup>
