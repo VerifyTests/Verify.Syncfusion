@@ -34,7 +34,7 @@ public class Samples
     [Test]
     public async Task VerifyPdfDocument()
     {
-        using var document = new PdfLoadedDocument(File.ReadAllBytes("sample.pdf"));
+        using var document = new PdfLoadedDocument(ProjectFiles.sample_pdf);
         await Verify(document)
             .ExcludeDerivedTargets("png");
     }
