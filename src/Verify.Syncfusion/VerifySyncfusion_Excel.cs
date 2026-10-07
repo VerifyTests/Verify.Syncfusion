@@ -101,7 +101,7 @@ public static partial class VerifySyncfusion
             1,
             lastRow,
             lastColumn,
-            new ExportImageOptions
+            new()
             {
                 ImageFormat = ExportImageFormat.Png,
                 // Best is three times the size each way, which for a sheet is an image too large

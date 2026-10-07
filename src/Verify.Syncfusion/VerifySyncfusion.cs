@@ -25,18 +25,18 @@ public static partial class VerifySyncfusion
         // relative to the target that was converted.
         VerifierSettings.RegisterStreamConverter("xlsx", (_, target, context) => ConvertExcel(target, context));
         VerifierSettings.RegisterStreamConverter("xls", (_, target, context) => ConvertExcel(target, context));
-        VerifierSettings.RegisterFileConverter<IWorkbook>((target, context) => ConvertExcel(target, context));
+        VerifierSettings.RegisterFileConverter<IWorkbook>(ConvertExcel);
 
         VerifierSettings.RegisterStreamConverter("pdf", (_, target, context) => ConvertPdf(target, context));
-        VerifierSettings.RegisterFileConverter<PdfDocument>((target, context) => ConvertPdf(target, context));
-        VerifierSettings.RegisterFileConverter<PdfLoadedDocument>((target, context) => ConvertPdf(target, context));
+        VerifierSettings.RegisterFileConverter<PdfDocument>(ConvertPdf);
+        VerifierSettings.RegisterFileConverter<PdfLoadedDocument>(ConvertPdf);
 
         VerifierSettings.RegisterStreamConverter("pptx", (_, target, context) => ConvertPowerPoint(target, context));
         VerifierSettings.RegisterStreamConverter("ppt", (_, target, context) => ConvertPowerPoint(target, context));
-        VerifierSettings.RegisterFileConverter<IPresentation>((target, context) => ConvertPowerPoint(target, context));
+        VerifierSettings.RegisterFileConverter<IPresentation>(ConvertPowerPoint);
 
         VerifierSettings.RegisterStreamConverter("docx", (_, target, context) => ConvertDocx(target, context));
         VerifierSettings.RegisterStreamConverter("doc", (_, target, context) => ConvertDoc(target, context));
-        VerifierSettings.RegisterFileConverter<WordDocument>((target, context) => ConvertWord(target, context));
+        VerifierSettings.RegisterFileConverter<WordDocument>(ConvertWord);
     }
 }
