@@ -4,7 +4,7 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="DeterministicPdf" Version="2.1.0" />
+    <PackageVersion Include="DeterministicPdf" Version="2.2.0" />
     <PackageVersion Include="DeterministicIoPackaging" Version="1.0.1" />
     <PackageVersion Include="MarkdownSnippets.MsBuild" Version="28.5.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
