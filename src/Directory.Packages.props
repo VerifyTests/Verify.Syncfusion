@@ -6,7 +6,7 @@
   <ItemGroup>
     <PackageVersion Include="DeterministicPdf" Version="2.2.0" />
     <PackageVersion Include="DeterministicIoPackaging" Version="1.0.1" />
-    <PackageVersion Include="MarkdownSnippets.MsBuild" Version="28.5.0" />
+    <PackageVersion Include="MarkdownSnippets.MsBuild" Version="28.5.1" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
     <PackageVersion Include="NUnit" Version="5.0.0" />
     <PackageVersion Include="NUnit3TestAdapter" Version="6.3.1" />
