@@ -157,6 +157,7 @@ public static partial class VerifySyncfusion
         book.SaveAs(sourceStream, ExcelSaveType.SaveAsXLS);
         ScrubLanguage(sourceStream, _ => _.StartsWith("xl/drawings/", StringComparison.Ordinal) &&
                                          _.EndsWith(".xml", StringComparison.Ordinal));
+        ScrubLicenseVersion(sourceStream);
         var resultStream = DeterministicPackage.Convert(sourceStream);
 
         return new("xlsx", resultStream);

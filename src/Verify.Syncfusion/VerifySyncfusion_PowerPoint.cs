@@ -118,6 +118,7 @@ public static partial class VerifySyncfusion
     {
         using var source = new MemoryStream();
         document.Save(source);
+        ScrubLicenseVersion(source);
         var resultStream = DeterministicPackage.Convert(source);
 
         return new("pptx", resultStream);

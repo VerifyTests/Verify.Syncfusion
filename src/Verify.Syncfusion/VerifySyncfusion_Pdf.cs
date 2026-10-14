@@ -66,6 +66,7 @@ public static partial class VerifySyncfusion
 
         var pdfStream = new MemoryStream();
         document.Save(pdfStream);
+        ScrubPdfLicenseVersion(pdfStream);
         pdfStream.Position = 0;
 
         // The document is already saved here to feed the renderer, so the pdf snapshot costs only the

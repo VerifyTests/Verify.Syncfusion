@@ -80,6 +80,7 @@ public static partial class VerifySyncfusion
     {
         using var source = new MemoryStream();
         document.Save(source, FormatType.Docx);
+        ScrubLicenseVersion(source);
         var resultStream = DeterministicPackage.Convert(source);
 
         return new("docx", resultStream);
