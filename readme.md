@@ -164,7 +164,6 @@ The info file has the document information under `Document`, the page count, and
     CustomMetadata: [],
     Keywords: ,
     ModificationDate: DateTime_2,
-    Producer: RAD PDF 3.9.0.0 - http://www.radpdf.com,
     Subject: ,
     Title: 
   },
@@ -234,7 +233,7 @@ Created with a trial version of Syncfusion PDF library.
   ]
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L77' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyPdf.verified.txt#L1-L76' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyPdf.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 [Samples.VerifyPdf#page_0001.verified.png](src/Tests/Samples.VerifyPdf%23page_0001.verified.png):
