@@ -21,6 +21,12 @@ public static partial class VerifySyncfusion
         // (eg the trial watermark) with a fresh Guid, so the saved pdf differs on every run.
         PdfDocument.EnableUniqueResourceNaming = false;
 
+#if !NETFRAMEWORK
+        // Syncfusion reads a font's widths through Windows-1252 when converting Word to pdf, and
+        // .NET Core ships only the Unicode encodings unless the code page provider is registered.
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+#endif
+
         // The name a stream converter is passed is not used: Verify names what a converter returns
         // relative to the target that was converted.
         VerifierSettings.RegisterStreamConverter("xlsx", (_, target, context) => ConvertExcel(target, context));

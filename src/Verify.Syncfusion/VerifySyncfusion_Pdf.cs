@@ -45,7 +45,6 @@ public static partial class VerifySyncfusion
             info.Keywords,
             info.Language,
             info.ModificationDate,
-            info.Producer,
             info.Subject,
             info.Title,
         };

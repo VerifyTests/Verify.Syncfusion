@@ -6,7 +6,6 @@
     CustomMetadata: [],
     Keywords: ,
     ModificationDate: DateTime_2,
-    Producer: RAD PDF 3.9.0.0 - http://www.radpdf.com,
     Subject: ,
     Title: 
   },
