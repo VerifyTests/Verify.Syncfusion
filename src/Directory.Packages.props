@@ -23,7 +23,7 @@
     <PackageVersion Include="Syncfusion.XlsIORenderer.Net.Core" Version="35.1.41" />
     <PackageVersion Include="Verify" Version="33.3.4" />
     <PackageVersion Include="Verify.NUnit" Version="33.3.4" />
-    <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="10.0.13" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="10.0.14" />
     <PackageVersion Include="Argon" Version="0.38.2" />
     <PackageVersion Include="DiffEngine" Version="20.8.2" />
     <PackageVersion Include="EmptyFiles" Version="8.20.1" />
