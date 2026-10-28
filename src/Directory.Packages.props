@@ -20,7 +20,7 @@
     <PackageVersion Include="Syncfusion.Presentation.Net.Core" Version="35.1.42" />
     <PackageVersion Include="Syncfusion.PresentationRenderer.Net.Core" Version="35.1.41" />
     <PackageVersion Include="Syncfusion.XlsIO.Net.Core" Version="35.1.42" />
-    <PackageVersion Include="Syncfusion.XlsIORenderer.Net.Core" Version="35.1.41" />
+    <PackageVersion Include="Syncfusion.XlsIORenderer.Net.Core" Version="35.1.42" />
     <PackageVersion Include="Verify" Version="33.3.4" />
     <PackageVersion Include="Verify.NUnit" Version="33.3.4" />
     <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="10.0.14" />
