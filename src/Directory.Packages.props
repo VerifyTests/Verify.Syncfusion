@@ -21,7 +21,7 @@
     <PackageVersion Include="Syncfusion.PresentationRenderer.Net.Core" Version="35.1.46" />
     <PackageVersion Include="Syncfusion.XlsIO.Net.Core" Version="35.1.46" />
     <PackageVersion Include="Syncfusion.XlsIORenderer.Net.Core" Version="35.1.46" />
-    <PackageVersion Include="Verify" Version="33.3.4" />
+    <PackageVersion Include="Verify" Version="33.5.0" />
     <PackageVersion Include="Verify.NUnit" Version="33.3.4" />
     <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="11.0.0" />
     <PackageVersion Include="Argon" Version="0.38.2" />
